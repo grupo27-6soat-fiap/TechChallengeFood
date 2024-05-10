@@ -1,5 +1,0 @@
-package com.fiap.TechChallengeFood.repository;
-
-public interface ClienteRepository {
-
-}
