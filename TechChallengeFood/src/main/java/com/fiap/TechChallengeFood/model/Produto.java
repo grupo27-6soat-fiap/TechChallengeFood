@@ -42,7 +42,6 @@ public class Produto {
 		this.imagem = imagem;
 	}
 	public void setSatus(String status) {
-		// TODO Auto-generated method stub
 		this.status = status;
 	}
 	
