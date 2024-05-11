@@ -9,6 +9,7 @@ public class Produto {
 	private String descricao;
 	private Double preco;
 	private File imagem;
+	private String status;
 	
 	public String getNome() {
 		return nome;
@@ -39,6 +40,10 @@ public class Produto {
 	}
 	public void setImagem(File imagem) {
 		this.imagem = imagem;
+	}
+	public void setSatus(String status) {
+		// TODO Auto-generated method stub
+		this.status = status;
 	}
 	
 }
