@@ -1,20 +1,21 @@
-version: '3.9'
-
 volumes:
   mysql_data: {}
 
 services:
   mysql:
     image: mysql:8.0
+    ##ports:
+    ##- "3306:3306"
     volumes:
        - mysql_data:/var/lib/mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_ROOT_HOST: '172.18.0.1'
+      ##MYSQL_ROOT_HOST: localhost
       MYSQL_DATABASE: techchallengefood
-      MYSQL_USER: techchallengefood
-      MYSQL_PASSWORD: techchallengefood
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+   
   java:
     depends_on:
       - mysql
@@ -24,8 +25,8 @@ services:
     restart: always
     environment:
       JAVA_DB_HOST: mysql:3306
-      JAVA_DB_USER: techchallengefood
-      JAVA_DB_PASSWORD: techchallengefood
+      JAVA_DB_USER: root
+      JAVA_DB_PASSWORD: root
       JAVA_DB_NAME: techchallengefood
     volumes: 
       - /app/sprin-app.jar
