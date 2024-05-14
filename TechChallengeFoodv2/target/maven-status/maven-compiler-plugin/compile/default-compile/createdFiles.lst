@@ -1,0 +1,6 @@
+com\fiap\TechChallengeFood\controller\ClienteController.class
+com\fiap\TechChallengeFood\repository\ClienteRepository.class
+com\fiap\TechChallengeFood\model\Pedido.class
+com\fiap\TechChallengeFood\model\Cliente.class
+com\fiap\TechChallengeFood\model\Produto.class
+com\fiap\TechChallengeFood\TechChallengeFoodApplication.class
