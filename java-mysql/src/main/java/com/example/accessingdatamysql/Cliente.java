@@ -14,6 +14,8 @@ public class Cliente {
 	private String name;
 
 	private String email;
+	
+	private boolean identificar;
 
 	public Integer getId() {
 		return id;
@@ -38,4 +40,12 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-}
+	
+	public void setIdentificar(boolean identificar) {
+		this.identificar = identificar;
+	}
+	
+	
+	}
+	
+
