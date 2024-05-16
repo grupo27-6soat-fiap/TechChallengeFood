@@ -1,6 +1,10 @@
 package food.techchallenge.api.domain.pedido.entity;
 
+import java.io.Serializable;
 import java.util.Timer;
+
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +22,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Pedido {
+public class Pedido implements Serializable{
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -27,6 +31,7 @@ public class Pedido {
 	private Double valorTotal;
 	private String status;
 	private int codigoFormaPagamento;
+	@JdbcTypeCode(SqlTypes.JSON)
 	private Timer tempoDecorrido;
 	
 	

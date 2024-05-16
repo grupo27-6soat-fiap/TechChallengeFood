@@ -8,21 +8,6 @@ create table cliente(
 
 );
 
-create table pedido(
-    id bigint not null auto_increment,
-    idCliente bigint not null,
-    idProduto varchar(50) not null,
-    valorTotal float not null,
-    statusPedido varchar(50) not null,
-    codigoFormaPagamento int not null,
-    tempoDecorrido datetime not null,
-
-    primary key(id),
-    FOREIGN KEY (idCliente) REFERENCES cliente(id),
-    FOREIGN KEY (idProduto) REFERENCES produto(id)
-
-);
-
 create table produto(
     id bigint not null auto_increment,
     nome varchar(50) not null,
@@ -35,3 +20,19 @@ create table produto(
     primary key(id)
 
 );
+
+create table pedido(
+    id bigint not null auto_increment,
+    idCliente bigint not null,
+    idProduto bigint not null,
+    valorTotal float not null,
+    statusPedido varchar(50) not null,
+    codigoFormaPagamento int not null,
+    tempoDecorrido datetime not null,
+
+    primary key(id),
+    FOREIGN KEY (idCliente) REFERENCES cliente(id),
+    FOREIGN KEY (idProduto) REFERENCES produto(id)
+
+);
+
