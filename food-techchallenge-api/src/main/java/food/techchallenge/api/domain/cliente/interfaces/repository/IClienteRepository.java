@@ -4,8 +4,9 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import food.techchallenge.api.domain.cliente.entity.Cliente;
+import food.techchallenge.api.infraestrutura.entity.ClienteEntity;
+
 @Repository
-public interface IClienteRepository extends JpaRepository<Cliente, Long> {
-    List<Cliente> findByCpf(String cpf);
+public interface IClienteRepository extends JpaRepository<ClienteEntity, Long> {
+    List<ClienteEntity> findByCpf(String cpf);
 }

@@ -9,25 +9,40 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import food.techchallenge.api.domain.cliente.entity.Cliente;
 import food.techchallenge.api.domain.cliente.interfaces.repository.IClienteRepository;
+import food.techchallenge.api.domain.cliente.interfaces.service.IClienteService;
+import food.techchallenge.api.domain.cliente.model.Cliente;
 import food.techchallenge.api.domain.cliente.vo.DadosCadastroCliente;
+<<<<<<< HEAD
+=======
+import food.techchallenge.api.infraestrutura.entity.ClienteEntity;
+>>>>>>> 31b3274ec5da80df098d74fae64553f7aac043f5
 import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/cliente")
 public class ClienteController {
 
-    @Autowired
-    //IClienteService _clienteService;
-    IClienteRepository clienteRepository;
+  
 
+<<<<<<< HEAD
     @ApiOperation(value = "Endpoint Cadastrar Cliente")
-    @PostMapping("/cadastrar")
-    public void cadastrar(@RequestBody DadosCadastroCliente dados){
-       
-        clienteRepository.save(new Cliente(dados));
+=======
+    IClienteService _clienteService;
+
+    
+    public ClienteController(IClienteService clienteService) {
+        this._clienteService = clienteService;
     }
+
+    @ApiOperation(value = "Endpoint Salvar Pessoas")
+>>>>>>> 31b3274ec5da80df098d74fae64553f7aac043f5
+    @PostMapping("/cadastrar")
+    public void cadastrar(@RequestBody Cliente cliente){
+       
+        _clienteService.cadastrarCliente(cliente);
+    }
+<<<<<<< HEAD
     
     @ApiOperation(value = "Consulta todos os clientes")
     @GetMapping("/obterTodosCliente")
@@ -41,6 +56,9 @@ public class ClienteController {
     public @ResponseBody Iterable<Cliente> getCliente(@RequestParam String cpf) {
         return clienteRepository.findByCpf(cpf);
     }
+=======
+
+>>>>>>> 31b3274ec5da80df098d74fae64553f7aac043f5
 
 
 }
