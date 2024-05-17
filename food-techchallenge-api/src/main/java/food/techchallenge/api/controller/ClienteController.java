@@ -13,52 +13,40 @@ import food.techchallenge.api.domain.cliente.interfaces.repository.IClienteRepos
 import food.techchallenge.api.domain.cliente.interfaces.service.IClienteService;
 import food.techchallenge.api.domain.cliente.model.Cliente;
 import food.techchallenge.api.domain.cliente.vo.DadosCadastroCliente;
-<<<<<<< HEAD
-=======
+
 import food.techchallenge.api.infraestrutura.entity.ClienteEntity;
->>>>>>> 31b3274ec5da80df098d74fae64553f7aac043f5
-import io.swagger.annotations.ApiOperation;
+
+//import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/cliente")
 public class ClienteController {
+	
+	IClienteService _clienteService;
 
-  
+	public ClienteController(IClienteService clienteService) {
+		this._clienteService = clienteService;
+	}
 
-<<<<<<< HEAD
-    @ApiOperation(value = "Endpoint Cadastrar Cliente")
-=======
-    IClienteService _clienteService;
+	//@ApiOperation(value = "Endpoint Salvar Pessoas")
 
-    
-    public ClienteController(IClienteService clienteService) {
-        this._clienteService = clienteService;
-    }
+	@PostMapping("/cadastrar")
+	public void cadastrar(@RequestBody Cliente cliente) {
 
-    @ApiOperation(value = "Endpoint Salvar Pessoas")
->>>>>>> 31b3274ec5da80df098d74fae64553f7aac043f5
-    @PostMapping("/cadastrar")
-    public void cadastrar(@RequestBody Cliente cliente){
-       
-        _clienteService.cadastrarCliente(cliente);
-    }
-<<<<<<< HEAD
-    
-    @ApiOperation(value = "Consulta todos os clientes")
-    @GetMapping("/obterTodosCliente")
-    public @ResponseBody Iterable<Cliente> getAllClientes() {
-       
-        return clienteRepository.findAll();
-    }
-    
-    @ApiOperation(value = "Endpoint Consulta Clientes")
-    @GetMapping("/obterCliente")
-    public @ResponseBody Iterable<Cliente> getCliente(@RequestParam String cpf) {
-        return clienteRepository.findByCpf(cpf);
-    }
-=======
+		_clienteService.cadastrarCliente(cliente);
+	}
 
->>>>>>> 31b3274ec5da80df098d74fae64553f7aac043f5
+	/*@ApiOperation(value = "Consulta todos os clientes")
+	@GetMapping("/obterTodosCliente")
+	public @ResponseBody Iterable<Cliente> getAllClientes() {
 
+		//return clienteRepository.findAll();
+	}
+
+	@ApiOperation(value = "Endpoint Consulta Clientes")
+	@GetMapping("/obterCliente")
+	public @ResponseBody Iterable<Cliente> getCliente(@RequestParam String cpf) {
+		return clienteRepository.findByCpf(cpf);
+	}*/
 
 }
