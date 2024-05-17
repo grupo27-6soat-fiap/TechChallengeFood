@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import food.techchallenge.api.domain.cliente.entity.Cliente;
 import food.techchallenge.api.domain.cliente.interfaces.repository.IClienteRepository;
 import food.techchallenge.api.domain.cliente.vo.DadosCadastroCliente;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/cliente")
@@ -21,18 +22,21 @@ public class ClienteController {
     //IClienteService _clienteService;
     IClienteRepository clienteRepository;
 
+    @ApiOperation(value = "Endpoint Cadastrar Cliente")
     @PostMapping("/cadastrar")
     public void cadastrar(@RequestBody DadosCadastroCliente dados){
        
         clienteRepository.save(new Cliente(dados));
     }
-
-   @GetMapping("/obterTodosCliente")
+    
+    @ApiOperation(value = "Consulta todos os clientes")
+    @GetMapping("/obterTodosCliente")
     public @ResponseBody Iterable<Cliente> getAllClientes() {
        
         return clienteRepository.findAll();
     }
-
+    
+    @ApiOperation(value = "Endpoint Consulta Clientes")
     @GetMapping("/obterCliente")
     public @ResponseBody Iterable<Cliente> getCliente(@RequestParam String cpf) {
         return clienteRepository.findByCpf(cpf);
