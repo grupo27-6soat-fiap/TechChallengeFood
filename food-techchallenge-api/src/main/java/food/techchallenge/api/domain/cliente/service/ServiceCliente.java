@@ -1,5 +1,8 @@
 package food.techchallenge.api.domain.cliente.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -7,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import food.techchallenge.api.domain.cliente.interfaces.repository.IClienteRepository;
 import food.techchallenge.api.domain.cliente.interfaces.service.IClienteService;
 import food.techchallenge.api.domain.cliente.model.Cliente;
+import food.techchallenge.api.domain.produto.entity.Produto;
 import food.techchallenge.api.infraestrutura.entity.ClienteEntity;
 
 @Service
@@ -30,6 +34,25 @@ public class ServiceCliente implements IClienteService {
         clienteRepository.save(new ClienteEntity(cliente));
         
     }
+
+
+
+
+
+    @Override
+    public List<Cliente> listar() {
+        List<ClienteEntity> clienteEntities = this.clienteRepository.findAll();
+        return clienteEntities.stream()
+                       .map(ClienteEntity::toCliente)
+                       .collect(Collectors.toList());
+        
+    }
+
+
+
+
+
+    
 
 
 }

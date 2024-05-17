@@ -1,6 +1,7 @@
 package food.techchallenge.api.infraestrutura.entity;
 
 import food.techchallenge.api.domain.cliente.model.Cliente;
+import food.techchallenge.api.domain.produto.entity.Produto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,4 +31,15 @@ public class ClienteEntity {
     private String nome;
     private String email;
     private String cpf;
+
+
+    
+
+    public Cliente toCliente() {
+        return new Cliente(this.id, this.cpf, this.email, this.nome);
+    }
+
+
+
+
 }
