@@ -1,6 +1,6 @@
-package food.techchallenge.api.domain.cliente.entity;
+package food.techchallenge.api.infraestrutura.entity;
 
-import food.techchallenge.api.domain.cliente.vo.DadosCadastroCliente;
+import food.techchallenge.api.domain.cliente.model.Cliente;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,13 +17,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Cliente {
+public class ClienteEntity {
 
 
-    public Cliente(DadosCadastroCliente dados){
-        this.cpf = dados.cpf();
-        this.email = dados.email();
-        this.nome = dados.nome();
+    public ClienteEntity(Cliente cliente){
+        this.cpf = cliente.getCpf();
+        this.email = cliente.getEmail();
+        this.nome = cliente.getNome();
     }
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

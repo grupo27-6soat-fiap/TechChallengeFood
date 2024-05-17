@@ -1,9 +1,12 @@
 package food.techchallenge.api.domain.cliente.interfaces.service;
 
-import food.techchallenge.api.domain.cliente.vo.DadosCadastroCliente;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import food.techchallenge.api.domain.cliente.model.Cliente;
 
 public interface IClienteService {
 
-    void cadastrarCliente(DadosCadastroCliente dados);
+    @Autowired
+    void cadastrarCliente(Cliente cliente);
 
 }
