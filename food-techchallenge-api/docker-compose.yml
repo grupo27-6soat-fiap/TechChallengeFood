@@ -17,7 +17,7 @@ services:
   foodtechchallenge-webservices:
     container_name: foodtechchallenge-webservices
     build:
-      context: ./food-techchallenge-api
+      # context: food-techchallenge-api
       dockerfile: Dockerfile
     ports:
       - 8080:8080
