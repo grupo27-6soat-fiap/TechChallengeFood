@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import food.techchallenge.api.domain.cliente.interfaces.service.IClienteService;
 import food.techchallenge.api.domain.cliente.model.Cliente;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 import java.util.List;
 
@@ -25,13 +30,21 @@ public class ClienteController {
 	}
 
 	//@ApiOperation(value = "Endpoint Salvar Pessoas")
-
+	@Operation(summary = "Cadastrar Cliente")
+	@ApiResponses(value = { 
+  	@ApiResponse(responseCode = "200", description = "Cliente cadastrado com sucesso", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Cliente.class)) }),
+  	@ApiResponse(responseCode = "500", description = "Ocorreu um erro ao cadastrar o cliente", content = @Content), 
+  	@ApiResponse(responseCode = "404", description = "Erro", content = @Content) })
 	@PostMapping("/cadastrar")
 	public void cadastrar(@RequestBody Cliente cliente) {
 
 		_clienteService.cadastrarCliente(cliente);
 	}
 
+	@Operation(summary = "Lista todos os Clientes")
+	@ApiResponses(value = { 
+  	@ApiResponse(responseCode = "200", description = "Clientes listados com sucesso", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Cliente.class)) }),
+  	@ApiResponse(responseCode = "400", description = "", content = @Content)})
     @GetMapping("/listar")
     public @ResponseBody List<Cliente> listar(){
        

@@ -12,7 +12,8 @@ public class Produto {
 	public Produto(Long id, String nome, String categoria, String descricao, Double preco, String imagem){
         this.id = id;
         this.nome = nome;
-        this.descricao = categoria;
+		this.categoria = categoria;
+        this.descricao = descricao;
 		this.preco = preco;
 		this.imagem = imagem;
     }
