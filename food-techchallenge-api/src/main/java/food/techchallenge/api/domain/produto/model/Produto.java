@@ -1,4 +1,5 @@
-package food.techchallenge.api.domain.cliente.model;
+package food.techchallenge.api.domain.produto.model;
+
 
 public class Produto { 
 	

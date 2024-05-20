@@ -3,17 +3,12 @@ package food.techchallenge.api.domain.produto.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import food.techchallenge.api.domain.cliente.interfaces.repository.IClienteRepository;
-import food.techchallenge.api.domain.cliente.interfaces.service.IClienteService;
-import food.techchallenge.api.domain.cliente.model.Cliente;
-import food.techchallenge.api.domain.cliente.model.Produto;
 import food.techchallenge.api.domain.produto.interfaces.repository.IProdutoRepository;
 import food.techchallenge.api.domain.produto.interfaces.service.IProdutoService;
-import food.techchallenge.api.infraestrutura.entity.ClienteEntity;
+import food.techchallenge.api.domain.produto.model.Produto;
 import food.techchallenge.api.infraestrutura.entity.ProdutoEntity;
 
 @Service
