@@ -1,32 +1,7 @@
-package food.techchallenge.api.domain.produto.entity;
+package food.techchallenge.api.domain.cliente.model;
 
-import food.techchallenge.api.domain.produto.vo.DadosCadastroProduto;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
-@Table(name = "produto")
-@Entity(name = "Produto")
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(of = "id")
 public class Produto { 
 	
-	public Produto(DadosCadastroProduto dados){
-        this.nome = dados.nome();
-        this.categoria = dados.categoria();
-        this.descricao = dados.descricao();
-		this.preco = dados.preco();
-		this.imagem = dados.imagem();
-    }
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String categoria;
@@ -34,5 +9,60 @@ public class Produto {
 	private Double preco;
 	private String imagem;
 	
+	public Produto(Long id, String nome, String categoria, String descricao, Double preco, String imagem){
+        this.id = id;
+        this.nome = nome;
+        this.descricao = categoria;
+		this.preco = preco;
+		this.imagem = imagem;
+    }
 	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+
 }

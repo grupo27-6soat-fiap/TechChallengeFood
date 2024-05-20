@@ -1,13 +1,11 @@
 package food.techchallenge.api.domain.cliente.model;
 
-
 public class Cliente {
 
     private Long id;
     private String nome;
     private String email;
     private String cpf;
-
 
     public Cliente( Long id, String nome, String email, String cpf) {
         this.id = id;

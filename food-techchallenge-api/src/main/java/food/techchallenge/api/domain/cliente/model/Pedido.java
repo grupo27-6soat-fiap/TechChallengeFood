@@ -1,38 +1,46 @@
-package food.techchallenge.api.domain.pedido.entity;
+package food.techchallenge.api.domain.cliente.model;
 
-import java.io.Serializable;
 import java.util.Timer;
 
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
+public class Pedido {
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
-@Table(name = "pedido")
-@Entity(name = "Pedido")
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(of = "id")
-public class Pedido implements Serializable{
-
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	//private Cliente cliente;
 	//private List<Produto> produtos;
 	private Double valorTotal;
 	private String status;
 	private int codigoFormaPagamento;
-	@JdbcTypeCode(SqlTypes.JSON)
 	private Timer tempoDecorrido;
 	
-	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Double getValorTotal() {
+		return valorTotal;
+	}
+	public void setValorTotal(Double valorTotal) {
+		this.valorTotal = valorTotal;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public int getCodigoFormaPagamento() {
+		return codigoFormaPagamento;
+	}
+	public void setCodigoFormaPagamento(int codigoFormaPagamento) {
+		this.codigoFormaPagamento = codigoFormaPagamento;
+	}
+	public Timer getTempoDecorrido() {
+		return tempoDecorrido;
+	}
+	public void setTempoDecorrido(Timer tempoDecorrido) {
+		this.tempoDecorrido = tempoDecorrido;
+	}
+
 }
