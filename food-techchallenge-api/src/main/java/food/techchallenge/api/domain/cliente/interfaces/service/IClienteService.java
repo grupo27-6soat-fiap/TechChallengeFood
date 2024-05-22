@@ -13,4 +13,6 @@ public interface IClienteService {
 
     List<Cliente> listar();
 
+    Cliente consultaCliente(String cpf);
+
 }
