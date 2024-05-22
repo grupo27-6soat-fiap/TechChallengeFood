@@ -24,7 +24,7 @@ create table produto(
 
 create table pedido(
     id bigint not null auto_increment,
-    idCliente bigint not null,
+    idCliente bigint,
     valorTotal float not null,
     statusPedido int not null,
     codigoFormaPagamento int not null,
@@ -46,18 +46,3 @@ create table produtoPedido(
     FOREIGN KEY(idProduto) REFERENCES produto(id),
     FOREIGN KEY(idPedido) REFERENCES pedido(id)
 );
-
-CREATE OR REPLACE VIEW vw_pedidos AS
-SELECT ped.id as idPedido,
-	   ped.statusPedido,
-	   cli.nome as cliente,
-	   prod.nome as produto,
-	   pped.valorProduto,
-	   pped.quantidade,
-	   ped.valorTotal
-FROM pedido ped 
-JOIN produtoPedido pped ON ped.id = pped.idPedido
-JOIN produto prod ON pped.idProduto = prod.id
-JOIN cliente cli ON ped.idCliente = cli.id;
-
-

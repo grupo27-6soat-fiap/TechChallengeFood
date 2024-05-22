@@ -16,6 +16,4 @@ public interface IPedidoService {
 
      List<Pedido> listarPedidos();
 
-    // Pedido obterPedido(Pedido pedido);
-
 }

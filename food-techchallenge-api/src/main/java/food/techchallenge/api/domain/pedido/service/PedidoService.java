@@ -1,11 +1,9 @@
 package food.techchallenge.api.domain.pedido.service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.hibernate.mapping.Collection;
 import org.springframework.stereotype.Service;
 
 import food.techchallenge.api.domain.cliente.interfaces.repository.IClienteRepository;
@@ -16,7 +14,6 @@ import food.techchallenge.api.domain.pedido.model.Pedido;
 import food.techchallenge.api.domain.pedido.model.ProdutoPedido;
 import food.techchallenge.api.domain.pedido.model.enums.StatusPedido;
 import food.techchallenge.api.domain.produto.interfaces.repository.IProdutoRepository;
-import food.techchallenge.api.domain.produto.model.Produto;
 import food.techchallenge.api.infraestrutura.entity.ClienteEntity;
 import food.techchallenge.api.infraestrutura.entity.PedidoEntity;
 import food.techchallenge.api.infraestrutura.entity.ProdutoEntity;
@@ -44,20 +41,17 @@ public class PedidoService implements IPedidoService {
     public void cadastrarPedido(Pedido pedido) {
 
         PedidoEntity pedidoEntity = new PedidoEntity(pedido);
-        Double valorTotal = 0.0;
 
-        Optional<ClienteEntity> clienteRep = _clienteRepository.findById(pedido.getIdCliente());
-        if (clienteRep.isPresent()) {
-            pedidoEntity.setCliente(clienteRep.get());
-        }
+        getClienteRep(pedido, pedidoEntity);
 
-        for (ProdutoPedido produto : pedido.getProdutos()) {
-            valorTotal =+ produto.getValorProduto() * produto.getQuantidade();
-        }
-        pedidoEntity.setValorTotal(valorTotal);
+        definirValorTotal(pedido, pedidoEntity);
 
         PedidoEntity pedidoEntRet =  _pedidoRepository.save(pedidoEntity);
 
+        salvarProdutosPedido(pedido, pedidoEntRet);
+    }
+
+    private void salvarProdutosPedido(Pedido pedido, PedidoEntity pedidoEntRet) {
         for (ProdutoPedido produto : pedido.getProdutos()) {
 
             Optional<ProdutoEntity> produtoRep = _produtoRepository.findById(produto.getIdProduto());
@@ -65,6 +59,21 @@ public class PedidoService implements IPedidoService {
                 ProdutoPedidoEntity produtoPedidoEntity = new ProdutoPedidoEntity(produto, pedidoEntRet, produtoRep);
                 _produtoPedidoRepository.save(produtoPedidoEntity);
             }
+        }
+    }
+
+    private void definirValorTotal(Pedido pedido, PedidoEntity pedidoEntity) {
+        Double valorTotal = 0.0;
+        for (ProdutoPedido produto : pedido.getProdutos()) {
+            valorTotal =+ produto.getValorProduto() * produto.getQuantidade();
+        }
+        pedidoEntity.setValorTotal(valorTotal);
+    }
+
+    private void getClienteRep(Pedido pedido, PedidoEntity pedidoEntity) {
+        Optional<ClienteEntity> clienteRep = _clienteRepository.findById(pedido.getIdCliente());
+        if (clienteRep.isPresent()) {
+            pedidoEntity.setCliente(clienteRep.get());
         }
     }
 
@@ -83,17 +92,9 @@ public class PedidoService implements IPedidoService {
 
     @Override
     public List<Pedido> listarPedidos() {
-        List<Pedido> teste = _pedidoRepository.listarPedidos();
-        Pedido pedido = new Pedido();
-        return _pedidoRepository.listarPedidos();
-    
+        List<PedidoEntity> pedidoEntities = _pedidoRepository.findAll();
+        return pedidoEntities.stream()
+                        .map(PedidoEntity::toPedido)
+                        .collect(Collectors.toList());
     }
-
-    // @Override
-    // public Pedido obterPedido(Pedido pedido) {
-    // // TODO Auto-generated method stub
-    // throw new UnsupportedOperationException("Unimplemented method
-    // 'obterPedido'");
-    // }
-
 }

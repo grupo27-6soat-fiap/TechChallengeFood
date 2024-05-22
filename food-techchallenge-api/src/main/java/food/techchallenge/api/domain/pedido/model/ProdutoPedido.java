@@ -1,6 +1,14 @@
 package food.techchallenge.api.domain.pedido.model;
 
+
 public class ProdutoPedido {
+
+    public ProdutoPedido(Long idProduto, int quantidade, Double valorProduto){
+        this.idProduto = idProduto;
+        this.quantidade = quantidade;
+        this.valorProduto = valorProduto;
+
+    }
 
     private Long idProduto;
     public Long getIdProduto() {

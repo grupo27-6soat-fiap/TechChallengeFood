@@ -1,17 +1,28 @@
 package food.techchallenge.api.domain.pedido.model;
 
 import java.util.List;
-import java.util.Timer;
 
 import food.techchallenge.api.domain.pedido.model.enums.StatusPedido;
 
 
 public class Pedido {
 
+	public Pedido(Long id, Long idCliente, List<ProdutoPedido> produtos, StatusPedido statusPedido, Double valorTotal, int codigoFormaPagamento, int tempoDecorrido){
+
+		this.id = id;
+		this.idCliente = idCliente;
+		this.produtos = produtos;
+		this.statusPedido = statusPedido;
+		this.valorTotal = valorTotal;
+		this.codigoFormaPagamento = codigoFormaPagamento;
+		this.tempoDecorrido = tempoDecorrido;
+	}
+
     private Long id;
 	private Long idCliente;
 	private List<ProdutoPedido> produtos;
 	private StatusPedido statusPedido;
+	private Double valorTotal; 
 	private int codigoFormaPagamento;
 	private int tempoDecorrido;
 	
@@ -50,6 +61,12 @@ public class Pedido {
 	}
 	public void setProdutos(List<ProdutoPedido> produtos) {
 		this.produtos = produtos;
+	}
+	public Double getValorTotal() {
+		return valorTotal;
+	}
+	public void setValorTotal(Double valorTotal) {
+		this.valorTotal = valorTotal;
 	}
 	
 
