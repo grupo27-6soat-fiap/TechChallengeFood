@@ -36,6 +36,12 @@ public class ServiceCliente implements IClienteService {
         
     }
 
+    @Override
+    public Cliente consultaCliente(String cpf) {
+        Cliente cliente = this.clienteRepository.findByCpf(cpf).toCliente();
+        return cliente;
+    }
+
 
 
 

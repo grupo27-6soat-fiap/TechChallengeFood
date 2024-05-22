@@ -23,6 +23,7 @@ public class ClienteEntity {
         this.cpf = cliente.getCpf();
         this.email = cliente.getEmail();
         this.nome = cliente.getNome();
+        this.id = cliente.getId();
     }
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,7 +32,7 @@ public class ClienteEntity {
     private String cpf;
 
     public Cliente toCliente() {
-        return new Cliente(this.id, this.cpf, this.email, this.nome);
+        return new Cliente(this.id, this.nome, this.email, this.cpf );
     }
 
 

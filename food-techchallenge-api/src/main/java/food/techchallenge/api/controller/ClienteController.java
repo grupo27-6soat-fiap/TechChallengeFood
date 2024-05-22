@@ -2,6 +2,7 @@ package food.techchallenge.api.controller;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,6 +50,16 @@ public class ClienteController {
     public @ResponseBody List<Cliente> listar(){
        
         return _clienteService.listar();
+    }
+
+	@Operation(summary = "Obtém cliente por CPF")
+	@ApiResponses(value = { 
+  	@ApiResponse(responseCode = "200", description = "Clientes listados com sucesso", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Cliente.class)) }),
+  	@ApiResponse(responseCode = "400", description = "", content = @Content)})
+    @GetMapping("/{id}")
+    public @ResponseBody Cliente consultaCliente(@PathVariable("id")String cpf){
+       
+        return _clienteService.consultaCliente(cpf); 
     }
 
 }
