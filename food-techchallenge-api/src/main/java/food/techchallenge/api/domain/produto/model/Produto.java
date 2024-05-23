@@ -9,14 +9,16 @@ public class Produto {
 	private String descricao;
 	private Double preco;
 	private String imagem;
-	
-	public Produto(Long id, String nome, String categoria, String descricao, Double preco, String imagem){
+	private Boolean isAtivo;
+
+	public Produto(Long id, String nome, String categoria, String descricao, Double preco, String imagem, Boolean isAtivo){
         this.id = id;
         this.nome = nome;
 		this.categoria = categoria;
         this.descricao = descricao;
 		this.preco = preco;
 		this.imagem = imagem;
+		this.isAtivo = isAtivo;
     }
 	
 	public Long getId() {
@@ -65,6 +67,14 @@ public class Produto {
 
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
+	}
+
+	public Boolean getIsAtivo() {
+		return isAtivo;
+	}
+
+	public void setIsAtivo(Boolean isAtivo) {
+		this.isAtivo = isAtivo;
 	}
 
 }

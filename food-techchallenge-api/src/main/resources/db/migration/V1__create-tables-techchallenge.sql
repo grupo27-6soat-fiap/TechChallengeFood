@@ -15,7 +15,7 @@ create table produto(
     descricao varchar(50) not null,
     preco float not null,
     imagem varchar(100) not null,
-
+    isAtivo TINYINT(1),
 
     primary key(id)
 

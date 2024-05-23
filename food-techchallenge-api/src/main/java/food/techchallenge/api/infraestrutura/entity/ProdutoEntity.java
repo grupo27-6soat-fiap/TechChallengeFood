@@ -10,10 +10,12 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Table(name = "produto")
 @Entity(name = "Produto")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -25,6 +27,7 @@ public class ProdutoEntity {
         this.descricao = dados.getDescricao();
 		this.preco = dados.getPreco();
 		this.imagem = dados.getImagem();
+		this.isAtivo = true;
     }
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,9 +37,10 @@ public class ProdutoEntity {
 	private String descricao;
 	private Double preco;
 	private String imagem;
+	private Boolean isAtivo;
 	
 	 public Produto toProduto() {
-	        return new Produto(this.id, this.nome, this.categoria, this.descricao, this.preco, this.imagem);
+	        return new Produto(this.id, this.nome, this.categoria, this.descricao, this.preco, this.imagem, this.isAtivo);
 	 }
 	
 }

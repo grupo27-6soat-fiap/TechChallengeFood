@@ -12,4 +12,6 @@ public interface IProdutoService {
 
     List<Produto> listar();
 
+    void excluir(Long id);
+
 }
