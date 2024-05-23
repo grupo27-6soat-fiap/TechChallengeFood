@@ -48,7 +48,7 @@ public class ClienteController {
   	@ApiResponse(responseCode = "400", description = "", content = @Content)})
     @GetMapping("/listar")
     public @ResponseBody List<Cliente> listar(){
-       
+        System.out.println("FR - Listar Todos");
         return _clienteService.listar();
     }
 
