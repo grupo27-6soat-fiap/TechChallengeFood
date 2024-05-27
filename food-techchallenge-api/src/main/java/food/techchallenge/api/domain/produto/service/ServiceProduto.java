@@ -13,6 +13,7 @@ import food.techchallenge.api.domain.produto.interfaces.service.IProdutoService;
 import food.techchallenge.api.domain.produto.model.Produto;
 import food.techchallenge.api.infraestrutura.entity.PedidoEntity;
 import food.techchallenge.api.infraestrutura.entity.ProdutoEntity;
+import jakarta.persistence.criteria.CriteriaBuilder;
 
 @Service
 public class ServiceProduto implements IProdutoService {
@@ -49,6 +50,16 @@ public class ServiceProduto implements IProdutoService {
             produtoEntity.setIsAtivo(false);
             produtoRepository.save(produtoEntity);
         }
+    }
+
+    @Override
+    public List<Produto> listarPorCategoria(String categoria) {
+        
+        List<ProdutoEntity> produtoEntities = this.produtoRepository.findByCategoria(categoria);
+        return produtoEntities.stream()
+                       .map(ProdutoEntity::toProduto)
+                       .collect(Collectors.toList());
+
     }
 
 

@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,6 +41,11 @@ public class ProdutoController {
     	
     }
 
+    @Operation(summary = "Listar todos os Produtos")
+    @ApiResponses(value = { 
+  	@ApiResponse(responseCode = "200", description = "Produtos listados com sucesso", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Produto.class)) }),
+  	@ApiResponse(responseCode = "500", description = "Ocorreu um erro ao listar os produtos", content = @Content), 
+    @ApiResponse(responseCode = "404", description = "Erro", content = @Content) })
     @GetMapping("/listar")
     public @ResponseBody List<Produto> listar(){
        
@@ -52,11 +57,22 @@ public class ProdutoController {
   	@ApiResponse(responseCode = "200", description = "Produto excluido com sucesso", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Produto.class)) }),
   	@ApiResponse(responseCode = "500", description = "Ocorreu um erro ao excluir o produto", content = @Content), 
   	@ApiResponse(responseCode = "404", description = "Erro", content = @Content) })
-	@DeleteMapping("/excluir/{id}")
-	public void checkout(@PathVariable("id") Long id) {
+	@DeleteMapping(path ={"/excluir/{id}"})
+	public void checkout(@PathVariable Long id) {
 
 		_produtoService.excluir(id);
         
 	}
+
+    @Operation(summary = "Listar Produtos por categoria")
+    @ApiResponses(value = { 
+  	@ApiResponse(responseCode = "200", description = "Produtos listados por categoria com sucesso", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Produto.class)) }),
+  	@ApiResponse(responseCode = "500", description = "Ocorreu um erro ao listar os produtos por categoria", content = @Content), 
+    @ApiResponse(responseCode = "404", description = "Erro", content = @Content) })
+    @GetMapping(path ={"/listarPorCategoria/{categoria}"})
+    public @ResponseBody List<Produto> listarPorCategoria(@RequestParam("Categoria") String categoria){
+       
+        return _produtoService.listarPorCategoria(categoria);
+    }
 
 }

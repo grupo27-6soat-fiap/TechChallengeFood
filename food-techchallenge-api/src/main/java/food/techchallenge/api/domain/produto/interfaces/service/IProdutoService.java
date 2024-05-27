@@ -14,4 +14,6 @@ public interface IProdutoService {
 
     void excluir(Long id);
 
+    List<Produto> listarPorCategoria(String categoria);
+    
 }
