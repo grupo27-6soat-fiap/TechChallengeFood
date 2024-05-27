@@ -34,11 +34,12 @@ public class ClienteController {
 	@Operation(summary = "Cadastrar Cliente")
 	@ApiResponses(value = { 
   	@ApiResponse(responseCode = "200", description = "Cliente cadastrado com sucesso", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Cliente.class)) }),
-  	@ApiResponse(responseCode = "500", description = "Ocorreu um erro ao cadastrar o cliente", content = @Content), 
+	@ApiResponse(responseCode = "400", description = "Parâmetros Inválidos", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Cliente.class)) }),
+  	@ApiResponse(responseCode = "500", description = "Internal Error", content = @Content), 
+	@ApiResponse(responseCode = "409", description = "Cliente já cadastrado", content = @Content), 
   	@ApiResponse(responseCode = "404", description = "Erro", content = @Content) })
 	@PostMapping("/cadastrar")
 	public void cadastrar(@RequestBody Cliente cliente) {
-
 		_clienteService.cadastrarCliente(cliente);
 	}
 
@@ -48,13 +49,14 @@ public class ClienteController {
   	@ApiResponse(responseCode = "400", description = "", content = @Content)})
     @GetMapping("/listar")
     public @ResponseBody List<Cliente> listar(){
-        System.out.println("FR - Listar Todos");
+        // System.out.println("FR - Listar Todos");
         return _clienteService.listar();
     }
 
 	@Operation(summary = "Obtém cliente por CPF")
 	@ApiResponses(value = { 
   	@ApiResponse(responseCode = "200", description = "Clientes listados com sucesso", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Cliente.class)) }),
+	@ApiResponse(responseCode = "404", description = "Clientes não encontrado", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Cliente.class)) }),
   	@ApiResponse(responseCode = "400", description = "", content = @Content)})
     @GetMapping("/{id}")
     public @ResponseBody Cliente consultaCliente(@PathVariable("id")String cpf){

@@ -6,9 +6,12 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import food.techchallenge.api.domain.cliente.exception.ClienteExistenteException;
+import food.techchallenge.api.domain.cliente.exception.ClienteNotFoundException;
 import food.techchallenge.api.domain.cliente.interfaces.repository.IClienteRepository;
 import food.techchallenge.api.domain.cliente.interfaces.service.IClienteService;
 import food.techchallenge.api.domain.cliente.model.Cliente;
+import food.techchallenge.api.domain.cliente.vo.CPF;
 import food.techchallenge.api.infraestrutura.entity.ClienteEntity;
 
 @Service
@@ -22,8 +25,13 @@ public class ServiceCliente implements IClienteService {
     
     @Override
     public void cadastrarCliente(@RequestBody Cliente cliente) {
-
-        clienteRepository.save(new ClienteEntity(cliente));
+        // new CPF(cliente.getCpf()); 
+        
+        if (clienteRepository.findByCpf(cliente.getCpf()).isPresent()) {
+            throw new ClienteExistenteException("Cliente com CPF " + cliente.getCpf() + " já existe");
+        }else{
+            clienteRepository.save(new ClienteEntity(cliente));
+        }
         
     }
 
@@ -38,8 +46,13 @@ public class ServiceCliente implements IClienteService {
 
     @Override
     public Cliente consultaCliente(String cpf) {
-        Cliente cliente = this.clienteRepository.findByCpf(cpf).toCliente();
-        return cliente;
+        new CPF(cpf);
+        ClienteEntity clienteEntity = this.clienteRepository.findByCpf(cpf)
+                .orElseThrow(() -> new ClienteNotFoundException("Cliente não encontrado com o  CPF " + cpf));
+        return clienteEntity.toCliente();
+
+        // Cliente cliente = this.clienteRepository.findByCpf(cpf).toCliente();
+        // return cliente;
     }
 
 

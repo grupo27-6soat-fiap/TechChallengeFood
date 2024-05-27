@@ -11,5 +11,5 @@ import food.techchallenge.api.infraestrutura.entity.ClienteEntity;
 @Repository
 public interface IClienteRepository extends JpaRepository<ClienteEntity, Long> {
     Optional<ClienteEntity> findById(Long id);
-    ClienteEntity findByCpf(String cpf);
+    Optional<ClienteEntity> findByCpf(String cpf);
 }

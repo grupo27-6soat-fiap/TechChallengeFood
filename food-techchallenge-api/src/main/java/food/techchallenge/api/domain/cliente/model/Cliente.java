@@ -1,5 +1,8 @@
 package food.techchallenge.api.domain.cliente.model;
 
+import food.techchallenge.api.domain.cliente.exception.ClienteNomeEmBrancoException;
+import food.techchallenge.api.domain.cliente.vo.CPF;
+
 public class Cliente {
 
     private Long id;
@@ -8,6 +11,10 @@ public class Cliente {
     private String cpf;
 
     public Cliente( Long id, String nome, String email, String cpf) {
+        if (nome == null || nome.trim().isEmpty()){
+            throw new ClienteNomeEmBrancoException("O nome do cliente é obrigatório.");
+        }
+        new CPF(cpf);
         this.id = id;
         this.nome = nome;
         this.email = email;
