@@ -13,7 +13,7 @@ public class CPF {
 
     public CPF(String value) {
         if (value == null ||  !isValidCPF(value)) {
-            throw new CpfInvalidException("Invalid CPF");
+            throw new CpfInvalidException("CPF Inválido");
         }
         this.value = value;
     }

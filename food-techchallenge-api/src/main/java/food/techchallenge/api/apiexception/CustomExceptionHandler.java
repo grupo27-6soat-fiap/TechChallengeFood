@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
 import food.techchallenge.api.domain.cliente.exception.ClienteExistenteException;
+import food.techchallenge.api.domain.cliente.exception.ClienteNomeEmBrancoException;
 import food.techchallenge.api.domain.cliente.exception.ClienteNotFoundException;
 import food.techchallenge.api.domain.cliente.exception.CpfInvalidException;
 
@@ -29,6 +30,11 @@ public class CustomExceptionHandler {
     public ResponseEntity<Object> handleClienteExistenteException(ClienteExistenteException ex, WebRequest request) {
         String mensagem = ex.getMessage();
         return ResponseEntity.status(HttpStatus.CONFLICT).body(mensagem);
+    }
+    @ExceptionHandler(ClienteNomeEmBrancoException.class)
+    public ResponseEntity<Object> handleClienteNomeEmBrancoException(ClienteNomeEmBrancoException ex, WebRequest request) {
+        String mensagem = ex.getMessage();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(mensagem);
     }
     
 
