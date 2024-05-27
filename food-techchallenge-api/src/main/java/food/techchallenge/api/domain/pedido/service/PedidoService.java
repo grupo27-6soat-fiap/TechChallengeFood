@@ -71,9 +71,11 @@ public class PedidoService implements IPedidoService {
     }
 
     private void getClienteRep(Pedido pedido, PedidoEntity pedidoEntity) {
-        Optional<ClienteEntity> clienteRep = _clienteRepository.findById(pedido.getIdCliente());
-        if (clienteRep.isPresent()) {
-            pedidoEntity.setCliente(clienteRep.get());
+        if(pedido.getIdCliente() != null){
+            Optional<ClienteEntity> clienteRep = _clienteRepository.findById(pedido.getIdCliente());
+            if (clienteRep.isPresent()) {
+                pedidoEntity.setCliente(clienteRep.get());
+            }
         }
     }
 
