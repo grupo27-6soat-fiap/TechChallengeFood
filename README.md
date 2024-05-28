@@ -19,7 +19,8 @@ Para desenvolver este software, utilizamos a metodologia DDD (Domain-Driven Desi
 ](https://github.com/grupo27-6soat-fiap/TechChallengeFood/blob/7db2018ad0638a380aa5bbc533998362560f924b/CollectionAPIPostman.json)
 
 # Miro
-[![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/e3a036d4-0d41-4000-9270-be6d962fd732)](https://miro.com/app/board/uXjVKStNlQI=/?share_link_id=418037355467)
+[![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/8a038dd1-a130-4d51-82aa-852912d357e0)
+](https://miro.com/app/board/uXjVKStNlQI=/?share_link_id=418037355467)
 
 # Tecnologias utilizadas
 ## Back end
