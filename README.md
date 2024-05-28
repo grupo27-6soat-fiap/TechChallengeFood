@@ -75,5 +75,5 @@ docker compose up --build
 
 - https://www.linkedin.com/in/felipe-reis-028a38181/
 - https://www.linkedin.com/in/henrique-rodrigues-639873173/
-
-
+- https://www.linkedin.com/in/lucas-domingues-de-souza-565720a1/
+- https://www.linkedin.com/in/lucas-marques-a4848a52/
