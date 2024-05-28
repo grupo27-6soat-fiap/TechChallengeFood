@@ -69,8 +69,8 @@ public class ProdutoController {
   	@ApiResponse(responseCode = "200", description = "Produtos listados por categoria com sucesso", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Produto.class)) }),
   	@ApiResponse(responseCode = "500", description = "Ocorreu um erro ao listar os produtos por categoria", content = @Content), 
     @ApiResponse(responseCode = "404", description = "Erro", content = @Content) })
-    @GetMapping(path ={"/listarPorCategoria"})
-    public @ResponseBody List<Produto> listarPorCategoria(@RequestParam("Categoria") String categoria){
+    @GetMapping(path ={"/listarPorCategoria/{categoria}"})
+    public @ResponseBody List<Produto> listarPorCategoria(@PathVariable("categoria") String categoria){
        
         return _produtoService.listarPorCategoria(categoria);
     }
