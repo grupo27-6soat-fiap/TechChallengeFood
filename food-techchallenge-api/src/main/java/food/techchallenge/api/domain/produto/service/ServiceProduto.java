@@ -35,6 +35,22 @@ public class ServiceProduto implements IProdutoService {
 	public List<Produto> listar() {
 		
 		List<ProdutoEntity> produtoEntities = this.produtoRepository.findAll();
+
+        for(int i = 0; i < produtoEntities.size(); i++) {
+           
+            if (produtoEntities.get(i).getIsAtivo() == false){
+               
+                produtoEntities.remove(i);
+               
+               if (i == 0){
+                    i = 0;
+               } else {
+                    i--;
+               }
+
+           } 
+        }
+
         return produtoEntities.stream()
                        .map(ProdutoEntity::toProduto)
                        .collect(Collectors.toList());
@@ -56,17 +72,26 @@ public class ServiceProduto implements IProdutoService {
     public List<Produto> listarPorCategoria(String categoria) {
         
         List<ProdutoEntity> produtoEntities = this.produtoRepository.findByCategoria(categoria);
+
+        for(int i = 0; i < produtoEntities.size(); i++) {
+           
+            if (produtoEntities.get(i).getIsAtivo() == false){
+               
+                produtoEntities.remove(i);
+               
+               if (i == 0){
+                    i = 0;
+               } else {
+                    i--;
+               }
+
+           } 
+        }
+
         return produtoEntities.stream()
                        .map(ProdutoEntity::toProduto)
                        .collect(Collectors.toList());
 
     }
-
-
-
-
-
-    
-
 
 }
