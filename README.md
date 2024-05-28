@@ -55,15 +55,18 @@ cd food-techchallenge-api
 
 # entrar no terminal e executar o seguinte comando
 docker compose up --build
+```
 
-# Autorores
+## Autores
 
-Henrique Rodriues da Silva RM 353376
-Felipe Reis - RM 353932
-Lucas Marques - RM 353910
-Lucas Domingues - RM 353900
+- Henrique Rodriues da Silva RM 353376
+- Felipe Reis - RM 353932
+- Lucas Marques - RM 353910
+- Lucas Domingues - RM 353900
 
-https://www.linkedin.com/in/felipe-reis-028a38181/
-https://www.linkedin.com/in/henrique-rodrigues-639873173/
+## Linkedin
+
+- https://www.linkedin.com/in/felipe-reis-028a38181/
+- https://www.linkedin.com/in/henrique-rodrigues-639873173/
 
 
