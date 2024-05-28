@@ -1,5 +1,5 @@
 # TechChallengerFood
-[![NPM](https://img.shields.io/npm/l/react)]
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/grupo27-6soat-fiap/TechChallengeFood/api-refactor/LICENSE)
 
 # Sobre o projeto
 
