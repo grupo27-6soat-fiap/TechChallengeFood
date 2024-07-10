@@ -64,6 +64,37 @@ cd food-techchallenge-api
 docker compose up --build
 ```
 
+## Linguagem Ubíqua
+ ```bash
+# Menu:
+
+- Combos: Uma refeição que está agrupada incluindo bebidas, acompanhamentos e o lanche.
+- Bebidas: Refrigerantes, sucos, água com e sem gás, chá e etc.
+- Lanche: Opções de sanduíches como: x-banco, x-salada, hamburguer.
+- Sobremsa: Opções de comida doces como por exemplo: sorvete, brigadeiro, bolo e etc.
+- Acompanhamento: Batata frita, Dadinho de tapioca, Onion rings, nuggets.
+
+# Pedido:
+
+- Balcão: Local onde o cliente pode retirar o pedido.
+- Cliente: Responsável por realizar o pedido e retirar a comida com o atendente.
+- Ticket: Número do pedido gerado após pagamento.
+
+# Cozinha:
+
+- Montagem do pedido: Momento em que o pedido do cliente começa ser montado pelos cozinheiros, para ser entregue ao cliente.
+- Cozinheiros: Responsáveis por cozinhar e realizar a montagem do pedido.
+- Controle de pedido: Onde os cozinheiros validam quais são os pedidos pendenes e finalizados.
+- Gestão de qualidade: Processo onde é validado a qualidade de cada ingrediente antes de inicializar o dia do restaurante.
+- Ingredientes: Tudo aquilo que compõem o pedido a ser montado e entregue para o cliente.
+
+# Pagamento:
+
+- Checkout: Onde o pagamento é realizado e validado para finalizar o pedido.
+- Gestão de pagamento: Onde é realizado a validação e controle das formas de pagamentos aceitas para o restaurante.
+- Cupom fiscal: Documento que é gerado caso o cliente deseje ter o  documento após realizar o pagamento.
+- Formas de pagamento: Dinheiro, pix, cartão de crédito, cartã de débito.
+```
 ## Autores
 
 - Henrique Rodriues da Silva RM 353376
