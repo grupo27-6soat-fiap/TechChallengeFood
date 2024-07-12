@@ -6,4 +6,6 @@ data:
   MYSQL_USER: springuser
   MYSQL_PASSWORD: ThePassword
   MYSQL_DATABASE: db_techfood
-  MYSQL_ROOT_PASSWORD: root 
+  MYSQL_DB_URL: "jdbc:mysql://db_techfood:3306/db_techfood"
+  MYSQL_DB_USER: "root"
+  MYSQL_DB_PASSWORD: "root"
