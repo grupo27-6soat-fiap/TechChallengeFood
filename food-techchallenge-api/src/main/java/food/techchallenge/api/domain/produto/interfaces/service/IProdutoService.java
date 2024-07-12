@@ -3,7 +3,7 @@ package food.techchallenge.api.domain.produto.interfaces.service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import food.techchallenge.api.domain.produto.model.Produto;
+import food.techchallenge.api.domain.produto.entity.Produto;
 
 public interface IProdutoService {
 

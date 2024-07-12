@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import food.techchallenge.api.domain.produto.entity.Produto;
 import food.techchallenge.api.domain.produto.interfaces.service.IProdutoService;
-import food.techchallenge.api.domain.produto.model.Produto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -22,11 +22,11 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
 @RequestMapping("/produto")
-public class ProdutoController {
+public class ProdutoControllerOLD {
 
     IProdutoService _produtoService;
 
-     public ProdutoController(IProdutoService produtoService) {
+     public ProdutoControllerOLD(IProdutoService produtoService) {
     	this._produtoService = produtoService;
 	}
     @Operation(summary = "Cadastrar Produto")

@@ -1,4 +1,4 @@
-package food.techchallenge.api.infraestrutura.entity;
+package food.techchallenge.api.infrastructure.persistence;
 
 import food.techchallenge.api.domain.produto.entity.Produto;
 import jakarta.persistence.Entity;
@@ -21,12 +21,12 @@ import lombok.Setter;
 @EqualsAndHashCode(of = "id")
 public class ProdutoEntity { 
 	
-	public ProdutoEntity(Produto dados){
-        this.nome = dados.getNome();
-        this.categoria = dados.getCategoria();
-        this.descricao = dados.getDescricao();
-		this.preco = dados.getPreco();
-		this.imagem = dados.getImagem();
+	public ProdutoEntity(String nome, String categoria, String descricao, Double preco, String imagem, boolean isAtivo){
+        this.nome = nome;
+        this.categoria = categoria;
+        this.descricao = descricao;
+		this.preco = preco;
+		this.imagem = imagem;
 		this.isAtivo = true;
     }
 	

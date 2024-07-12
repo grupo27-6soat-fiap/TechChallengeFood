@@ -1,4 +1,4 @@
-package food.techchallenge.api.domain.produto.model;
+package food.techchallenge.api.domain.produto.entity;
 
 public class Produto { 
 	
@@ -10,8 +10,7 @@ public class Produto {
 	private String imagem;
 	private Boolean isAtivo;
 
-	public Produto(Long id, String nome, String categoria, String descricao, Double preco, String imagem, Boolean isAtivo){
-        this.id = id;
+	public Produto(String nome, String categoria, String descricao, Double preco, String imagem, Boolean isAtivo){
         this.nome = nome;
 		this.categoria = categoria;
         this.descricao = descricao;
