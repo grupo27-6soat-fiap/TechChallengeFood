@@ -16,8 +16,6 @@ import food.techchallenge.api.domain.pedido.model.enums.StatusPedido;
 import food.techchallenge.api.domain.produto.interfaces.repository.IProdutoRepository;
 import food.techchallenge.api.infraestrutura.entity.ClienteEntity;
 import food.techchallenge.api.infraestrutura.entity.PedidoEntity;
-import food.techchallenge.api.infraestrutura.entity.ProdutoEntity;
-import food.techchallenge.api.infraestrutura.entity.ProdutoPedidoEntity;
 
 @Service
 public class PedidoService implements IPedidoService {
@@ -54,11 +52,11 @@ public class PedidoService implements IPedidoService {
     private void salvarProdutosPedido(Pedido pedido, PedidoEntity pedidoEntRet) {
         for (ProdutoPedido produto : pedido.getProdutos()) {
 
-            Optional<ProdutoEntity> produtoRep = _produtoRepository.findById(produto.getIdProduto());
-            if (produtoRep.isPresent()) {
-                ProdutoPedidoEntity produtoPedidoEntity = new ProdutoPedidoEntity(produto, pedidoEntRet, produtoRep);
-                _produtoPedidoRepository.save(produtoPedidoEntity);
-            }
+            // Optional<ProdutoEntity> produtoRep = _produtoRepository.findById(produto.getIdProduto());
+            // if (produtoRep.isPresent()) {
+            //     ProdutoPedidoEntity produtoPedidoEntity = new ProdutoPedidoEntity(produto, pedidoEntRet, produtoRep);
+            //     _produtoPedidoRepository.save(produtoPedidoEntity);
+            // }
         }
     }
 

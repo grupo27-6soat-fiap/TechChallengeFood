@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import food.techchallenge.api.domain.produto.entity.Produto;
 import food.techchallenge.api.domain.produto.interfaces.repository.IProdutoRepository;
 import food.techchallenge.api.domain.produto.interfaces.service.IProdutoService;
-import food.techchallenge.api.infraestrutura.entity.ProdutoEntity;
+import food.techchallenge.api.infrastructure.persistence.ProdutoEntity;
 @Service
 public class ServiceProduto implements IProdutoService {
 
@@ -22,7 +22,7 @@ public class ServiceProduto implements IProdutoService {
     @Override
 	public void cadastrarProduto(@RequestBody Produto produto) {
         
-    	produtoRepository.save(new ProdutoEntity(produto));
+    	//produtoRepository.save(new ProdutoEntity(produto));
 		
 	}
 

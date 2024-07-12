@@ -56,8 +56,8 @@ public class PedidoEntity implements Serializable{
 	public Pedido toPedido(){
 		List<ProdutoPedido> produtosPedido = new ArrayList<>();
 		for (ProdutoPedidoEntity produtoPedidoEntity : this.produtos) {
-			ProdutoPedido produtoPedido = new ProdutoPedido(produtoPedidoEntity.getProduto().getId(), produtoPedidoEntity.getQuantidade(), produtoPedidoEntity.getValorProduto());
-			produtosPedido.add(produtoPedido);
+			//ProdutoPedido produtoPedido = new ProdutoPedido(produtoPedidoEntity.getProduto().getId(), produtoPedidoEntity.getQuantidade(), produtoPedidoEntity.getValorProduto());
+			//produtosPedido.add(produtoPedido);
 		}
 		return new Pedido(this.id, this.cliente != null ? this.cliente.getId() : 0, produtosPedido, StatusPedido.values()[this.statusPedido -1], this.getValorTotal(), this.codigoFormaPagamento, this.tempoDecorrido);
 	}
