@@ -1,6 +1,5 @@
 package food.techchallenge.api.domain.produto.model;
 
-
 public class Produto { 
 	
 	private Long id;
