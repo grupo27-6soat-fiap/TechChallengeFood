@@ -2,8 +2,6 @@ package food.techchallenge.api.main;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-
 import food.techchallenge.api.application.gateways.ProdutoGateway;
 import food.techchallenge.api.application.produtousecases.ProdutoInteractor;
 import food.techchallenge.api.infrastructure.controlers.ProdutoDTOMapper;

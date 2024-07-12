@@ -1,7 +1,5 @@
 package food.techchallenge.api.domain.cliente.model;
 
-import java.util.Timer;
-
 public class Pedido {
 
 	// private Long id;

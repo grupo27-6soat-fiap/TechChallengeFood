@@ -3,19 +3,13 @@ package food.techchallenge.api.domain.produto.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import food.techchallenge.api.domain.pedido.model.enums.StatusPedido;
 import food.techchallenge.api.domain.produto.entity.Produto;
 import food.techchallenge.api.domain.produto.interfaces.repository.IProdutoRepository;
 import food.techchallenge.api.domain.produto.interfaces.service.IProdutoService;
-import food.techchallenge.api.infraestrutura.entity.PedidoEntity;
 import food.techchallenge.api.infraestrutura.entity.ProdutoEntity;
-import jakarta.persistence.criteria.CriteriaBuilder;
-
 @Service
 public class ServiceProduto implements IProdutoService {
 

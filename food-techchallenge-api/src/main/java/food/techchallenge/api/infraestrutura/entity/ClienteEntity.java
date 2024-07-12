@@ -1,7 +1,6 @@
 package food.techchallenge.api.infraestrutura.entity;
 
 import food.techchallenge.api.domain.cliente.model.Cliente;
-import food.techchallenge.api.domain.cliente.vo.CPF;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

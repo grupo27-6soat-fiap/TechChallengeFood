@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import food.techchallenge.api.domain.cliente.model.Cliente;
 import food.techchallenge.api.domain.pedido.interfaces.service.IPedidoService;
 import food.techchallenge.api.domain.pedido.model.Pedido;
 import io.swagger.v3.oas.annotations.Operation;
