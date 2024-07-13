@@ -9,7 +9,7 @@ public class ProdutoDTOMapper {
     }
 
     public Produto toProduto(CreateProdutoRequest request){
-        return new Produto(request.nome(), request.categoria(), request.descricao(), request.preco(), request.imagem(), true);
+        return new Produto(request.id(),request.nome(), request.categoria(), request.descricao(), request.preco(), request.imagem(), true);
     }
 
 }

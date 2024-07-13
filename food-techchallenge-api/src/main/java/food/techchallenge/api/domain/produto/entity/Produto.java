@@ -10,8 +10,9 @@ public class Produto {
 	private String imagem;
 	private Boolean isAtivo;
 
-	public Produto(String nome, String categoria, String descricao, Double preco, String imagem, Boolean isAtivo){
-        this.nome = nome;
+	public Produto(Long id, String nome, String categoria, String descricao, Double preco, String imagem, Boolean isAtivo){
+        this.id = id;
+		this.nome = nome;
 		this.categoria = categoria;
         this.descricao = descricao;
 		this.preco = preco;

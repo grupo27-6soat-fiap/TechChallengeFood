@@ -40,8 +40,9 @@ public class ProdutoController {
       
       Produto produtoBusinessObj = produtoDTOMapper.toProduto(request);
       Produto produto = produtoInteractor.cadastrarProduto(produtoBusinessObj);
-      return produtoDTOMapper.toResponse(produto);
 
+      return produtoDTOMapper.toResponse(produto);
+    
     }
 
     @Operation(summary = "Listar todos os Produtos")
