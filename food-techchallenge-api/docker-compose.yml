@@ -25,9 +25,9 @@ services:
       - db_techfood
     environment:  
       - spring.jpa.hibernate.ddl-auto=update
-      - spring.datasource.url=jdbc:mysql://db_techfood:3306/db_techfood
+      - spring.datasource.url=jdbc:mysql://db-techfood:3306/db_techfood
       - spring.datasource.username=root
-      - spring.datasource.password=root
+      - spring.datasource.password=ThePassword
       - spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
     networks:
       foodtechchallenge-net:
