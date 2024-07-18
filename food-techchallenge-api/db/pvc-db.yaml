@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+spec:
+  accessModes:
+    - ReadWriteOnce  # Modo de acesso para um nó (ReadWriteMany para vários nós)
+  resources:
+    requests:
+      storage: 10Gi   # Tamanho do armazenamento solicitado

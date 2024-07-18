@@ -20,6 +20,13 @@ spec:
           envFrom:
             - configMapRef:
                 name: db-configmap
+          volumeMounts:
+            - name: db-pvc-storage
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: db-pvc-storage
+          persistentVolumeClaim:
+            claimName: mysql-pv-claim
   selector:
     matchLabels:
       app: db-projeto-fiap
