@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import food.techchallenge.api.application.gateways.ProdutoGateway;
 import food.techchallenge.api.application.produtousecases.ProdutoInteractor;
-import food.techchallenge.api.infrastructure.controlers.ProdutoDTOMapper;
+import food.techchallenge.api.infrastructure.controlers.produto.ProdutoDTOMapper;
 import food.techchallenge.api.infrastructure.gateways.ProdutoEntityMapper;
 import food.techchallenge.api.infrastructure.gateways.ProdutoRepositoryGateway;
 import food.techchallenge.api.infrastructure.persistence.ProdutoRepository;

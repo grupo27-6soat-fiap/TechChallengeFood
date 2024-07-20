@@ -6,31 +6,30 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import food.techchallenge.api.domain.cliente.interfaces.repository.IClienteRepository;
 import food.techchallenge.api.domain.pedido.interfaces.repository.IPedidoRepository;
 import food.techchallenge.api.domain.pedido.interfaces.repository.IProdutoPedidoRepository;
 import food.techchallenge.api.domain.pedido.interfaces.service.IPedidoService;
 import food.techchallenge.api.domain.pedido.model.Pedido;
 import food.techchallenge.api.domain.pedido.model.ProdutoPedido;
 import food.techchallenge.api.domain.pedido.model.enums.StatusPedido;
-import food.techchallenge.api.domain.produto.interfaces.repository.IProdutoRepository;
-import food.techchallenge.api.infraestrutura.entity.ClienteEntity;
 import food.techchallenge.api.infraestrutura.entity.PedidoEntity;
+import food.techchallenge.api.infrastructure.persistence.ClienteEntity;
+import food.techchallenge.api.infrastructure.persistence.ClienteRepository;
 
 @Service
 public class PedidoService implements IPedidoService {
 
     private final IPedidoRepository _pedidoRepository;
-    private final IProdutoRepository _produtoRepository;
-    private final IClienteRepository _clienteRepository;
+    //private final IProdutoRepository _produtoRepository;
+    private final ClienteRepository _clienteRepository;
     private final IProdutoPedidoRepository _produtoPedidoRepository;
 
     public PedidoService(IPedidoRepository pedidoRepository,
-            IProdutoRepository produtoRepository,
-            IClienteRepository clienteRepository,
+           // IProdutoRepository produtoRepository,
+            ClienteRepository clienteRepository,
             IProdutoPedidoRepository produtoPedidoRepository) {
         _pedidoRepository = pedidoRepository;
-        _produtoRepository = produtoRepository;
+       // _produtoRepository = produtoRepository;
         _clienteRepository = clienteRepository;
         _produtoPedidoRepository = produtoPedidoRepository;
     }

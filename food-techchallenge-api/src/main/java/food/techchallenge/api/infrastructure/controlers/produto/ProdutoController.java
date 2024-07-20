@@ -1,4 +1,4 @@
-package food.techchallenge.api.infrastructure.controlers;
+package food.techchallenge.api.infrastructure.controlers.produto;
 
 import java.util.List;
 
@@ -30,6 +30,7 @@ public class ProdutoController {
     	this.produtoInteractor = produtoInteractor;
       this.produtoDTOMapper = produtoDTOMapper;
 	}
+  
     @Operation(summary = "Cadastrar Produto")
     @ApiResponses(value = { 
   	@ApiResponse(responseCode = "200", description = "Produto cadastrado com sucesso", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Produto.class)) }),

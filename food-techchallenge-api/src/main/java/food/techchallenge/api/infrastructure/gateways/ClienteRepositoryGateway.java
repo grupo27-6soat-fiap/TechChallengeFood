@@ -1,4 +1,4 @@
-package food.techchallenge.api.domain.cliente.service;
+package food.techchallenge.api.infrastructure.gateways;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,20 +6,20 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import food.techchallenge.api.application.gateways.ClienteGateway;
+import food.techchallenge.api.domain.cliente.entity.Cliente;
 import food.techchallenge.api.domain.cliente.exception.ClienteExistenteException;
 import food.techchallenge.api.domain.cliente.exception.ClienteNotFoundException;
-import food.techchallenge.api.domain.cliente.interfaces.repository.IClienteRepository;
-import food.techchallenge.api.domain.cliente.interfaces.service.IClienteService;
-import food.techchallenge.api.domain.cliente.model.Cliente;
 import food.techchallenge.api.domain.cliente.vo.CPF;
-import food.techchallenge.api.infraestrutura.entity.ClienteEntity;
+import food.techchallenge.api.infrastructure.persistence.ClienteEntity;
+import food.techchallenge.api.infrastructure.persistence.ClienteRepository;
 
 @Service
-public class ServiceCliente implements IClienteService {
+public class ClienteRepositoryGateway implements ClienteGateway {
   
-    private final IClienteRepository clienteRepository;
+    private final ClienteRepository clienteRepository;
 
-    public ServiceCliente(IClienteRepository clienteRepository) {
+    public ClienteRepositoryGateway(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
     }
     

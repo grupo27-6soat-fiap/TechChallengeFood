@@ -1,4 +1,4 @@
-package food.techchallenge.api.infrastructure.controlers;
+package food.techchallenge.api.infrastructure.controlers.produto;
 
 import food.techchallenge.api.domain.produto.entity.Produto;
 
@@ -9,7 +9,7 @@ public class ProdutoDTOMapper {
     }
 
     public Produto toProduto(CreateProdutoRequest request){
-        return new Produto(request.id(),request.nome(), request.categoria(), request.descricao(), request.preco(), request.imagem(), true);
+        return new Produto(new Long(0),request.nome(), request.categoria(), request.descricao(), request.preco(), request.imagem(), true);
     }
 
 }

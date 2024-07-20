@@ -1,4 +1,4 @@
-package food.techchallenge.api.domain.cliente.model;
+package food.techchallenge.api.domain.cliente.entity;
 
 import food.techchallenge.api.domain.cliente.exception.ClienteNomeEmBrancoException;
 import food.techchallenge.api.domain.cliente.vo.CPF;

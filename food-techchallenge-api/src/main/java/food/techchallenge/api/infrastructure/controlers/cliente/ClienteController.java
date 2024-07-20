@@ -1,5 +1,6 @@
-package food.techchallenge.api.controller;
+package food.techchallenge.api.infrastructure.controlers.cliente;
 
+import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,15 +9,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import food.techchallenge.api.domain.cliente.interfaces.service.IClienteService;
-import food.techchallenge.api.domain.cliente.model.Cliente;
+
+import food.techchallenge.api.application.clienteusecases.ClienteInteractor;
+import food.techchallenge.api.domain.cliente.entity.Cliente;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-
-import java.util.List;
 
 //import io.swagger.annotations.ApiOperation;
 
@@ -24,10 +24,10 @@ import java.util.List;
 @RequestMapping("/cliente")
 public class ClienteController {
 	
-	IClienteService _clienteService;
+	private ClienteInteractor clienteInteractor;
 
-	public ClienteController(IClienteService clienteService) {
-		this._clienteService = clienteService;
+	public ClienteController(ClienteInteractor clienteInteractor) {
+		this.clienteInteractor = clienteInteractor;
 	}
 
 	//@ApiOperation(value = "Endpoint Salvar Pessoas")
@@ -40,7 +40,7 @@ public class ClienteController {
   	@ApiResponse(responseCode = "404", description = "Erro", content = @Content) })
 	@PostMapping("/cadastrar")
 	public void cadastrar(@RequestBody Cliente cliente) {
-		_clienteService.cadastrarCliente(cliente);
+		clienteInteractor.cadastrarCliente(cliente);
 	}
 
 	@Operation(summary = "Lista todos os Clientes")
@@ -50,7 +50,7 @@ public class ClienteController {
     @GetMapping("/listar")
     public @ResponseBody List<Cliente> listar(){
         // System.out.println("FR - Listar Todos");
-        return _clienteService.listar();
+        return clienteInteractor.listar();
     }
 
 	@Operation(summary = "Obtém cliente por CPF")
@@ -61,7 +61,7 @@ public class ClienteController {
     @GetMapping("/{id}")
     public @ResponseBody Cliente consultaCliente(@PathVariable("id")String cpf){
        
-        return _clienteService.consultaCliente(cpf); 
+        return clienteInteractor.consultaCliente(cpf); 
     }
 
 }

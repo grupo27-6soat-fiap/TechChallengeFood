@@ -38,8 +38,4 @@ public class ProdutoEntity {
 	private String imagem;
 	private Boolean isAtivo;
 	
-	 //public Produto toProduto() {
-	 //       return new Produto(this.id, this.nome, this.categoria, this.descricao, this.preco, this.imagem, this.isAtivo);
-	 //}
-	
 }
