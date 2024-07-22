@@ -1,4 +1,4 @@
-package food.techchallenge.api.domain.pedido.model.enums;
+package food.techchallenge.api.domain.pedido.enums;
 
 public enum StatusPedido {
     Novo(1, "Novo"),

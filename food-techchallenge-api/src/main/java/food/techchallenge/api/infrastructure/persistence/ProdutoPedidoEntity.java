@@ -1,9 +1,8 @@
-package food.techchallenge.api.infraestrutura.entity;
+package food.techchallenge.api.infrastructure.persistence;
 
 import java.util.Optional;
 
-import food.techchallenge.api.domain.pedido.model.ProdutoPedido;
-import food.techchallenge.api.infrastructure.persistence.ProdutoEntity;
+import food.techchallenge.api.domain.produtopedido.entity.ProdutoPedido;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

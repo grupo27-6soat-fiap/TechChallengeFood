@@ -1,8 +1,9 @@
-package food.techchallenge.api.domain.pedido.model;
+package food.techchallenge.api.domain.pedido.entity;
 
 import java.util.List;
 
-import food.techchallenge.api.domain.pedido.model.enums.StatusPedido;
+import food.techchallenge.api.domain.pedido.enums.StatusPedido;
+import food.techchallenge.api.domain.produtopedido.entity.ProdutoPedido;
 
 
 public class Pedido {

@@ -1,4 +1,4 @@
-package food.techchallenge.api.domain.pedido.model;
+package food.techchallenge.api.domain.produtopedido.entity;
 
 
 public class ProdutoPedido {

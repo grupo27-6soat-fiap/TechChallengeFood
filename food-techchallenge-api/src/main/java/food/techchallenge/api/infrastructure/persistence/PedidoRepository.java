@@ -1,4 +1,4 @@
-package food.techchallenge.api.domain.pedido.interfaces.repository;
+package food.techchallenge.api.infrastructure.persistence;
 
 import java.util.List;
 
@@ -6,12 +6,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import food.techchallenge.api.domain.pedido.model.Pedido;
-import food.techchallenge.api.infraestrutura.entity.PedidoEntity;
+import food.techchallenge.api.domain.pedido.entity.Pedido;
 
 
 @Repository
-public interface IPedidoRepository extends JpaRepository<PedidoEntity, Long>  {
+public interface PedidoRepository extends JpaRepository<PedidoEntity, Long>  {
 
     // void atualizarPedido(Pedido pedido);
 

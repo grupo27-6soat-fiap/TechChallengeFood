@@ -1,4 +1,4 @@
-package food.techchallenge.api.controller;
+package food.techchallenge.api.infrastructure.controlers.pedido;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import food.techchallenge.api.domain.pedido.interfaces.service.IPedidoService;
-import food.techchallenge.api.domain.pedido.model.Pedido;
+import food.techchallenge.api.application.pedidousecases.PedidoInteractor;
+import food.techchallenge.api.domain.pedido.entity.Pedido;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -23,10 +23,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @RequestMapping("/pedido")
 public class PedidoController {
 
-    private final IPedidoService _pedidoService;
+    private PedidoInteractor pedidoInteractor;
     
-    public PedidoController(IPedidoService pedidoService){
-        _pedidoService = pedidoService;
+    public PedidoController(PedidoInteractor pedidoInteractor){
+        this.pedidoInteractor = pedidoInteractor;
     }
 
     @Operation(summary = "Cadastrar Pedido")
@@ -37,7 +37,7 @@ public class PedidoController {
 	@PostMapping("/cadastrar")
 	public void cadastrar(@RequestBody Pedido pedido) {
 
-		_pedidoService.cadastrarPedido(pedido);
+		pedidoInteractor.cadastrarPedido(pedido);
 	}
 
 	@Operation(summary = "Checkout do Pedido")
@@ -48,7 +48,7 @@ public class PedidoController {
 	@PutMapping("/checkout")
 	public void checkout(@RequestBody Pedido pedido) {
 
-		_pedidoService.checkoutPedido(pedido);
+		pedidoInteractor.checkoutPedido(pedido);
 	}
 
 	@Operation(summary = "Lista todos os Pedidos")
@@ -58,7 +58,7 @@ public class PedidoController {
     @GetMapping("/listar")
     public @ResponseBody List<Pedido> listar(){
        
-        return _pedidoService.listarPedidos();
+        return pedidoInteractor.listarPedidos();
     }
 
 
