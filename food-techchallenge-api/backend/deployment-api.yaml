@@ -19,7 +19,17 @@ spec:
             - containerPort: 8080
           envFrom:
             - configMapRef:
-                name: api-configmap        
+                name: api-configmap    
+          livenessProbe:
+            httpGet:
+              path: /swagger-ui/index.html#/produto-controller/listar
+              port: 8080
+            periodSeconds: 10
+            failureThreshold: 5
+            initialDelaySeconds: 20
+          resources:
+            requests:
+              cpu: 10m    
   selector:
     matchLabels:
       app: projeto-fiap-pod
