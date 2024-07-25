@@ -31,6 +31,7 @@ Para desenvolver este software, utilizamos a metodologia DDD (Domain-Driven Desi
 
 ## Base de dados
 - MySql
+![image](https://github.com/user-attachments/assets/3f412814-13b6-4ce3-b289-26a97992f029)
 
 ## Implementação
 Para implantar o projeto, utilizamos o conceito de containers com o Docker como ferramenta de gerenciamento. Nosso projeto usa tanto Dockerfile quanto Docker-compose. Utilizamos uma imagem do Java com Spring e uma imagem do MySQL para rodar o banco de dados localmente e realizar as operações de CRUD da nossa aplicação.
