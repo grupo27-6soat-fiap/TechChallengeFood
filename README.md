@@ -14,6 +14,9 @@ Para desenvolver este software, utilizamos a metodologia DDD (Domain-Driven Desi
 ## Domain-driven design
 ![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/06481679-ca3c-4b1d-a574-80e3fc1adcbc)
 
+# Link Swagger:
+- http://localhost:30002/swagger-ui/index.html
+
 # Para acessar a Collection da API Postman clique na imagem:
 [![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/7c176de0-6cf8-4d62-9b7d-53cccf43caca)
 ](https://github.com/grupo27-6soat-fiap/TechChallengeFood/blob/7db2018ad0638a380aa5bbc533998362560f924b/CollectionAPIPostman.json)
@@ -21,6 +24,8 @@ Para desenvolver este software, utilizamos a metodologia DDD (Domain-Driven Desi
 # Para acessar o Miro clique na imagem:
 [![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/ac2545b8-8be5-4b5d-8887-aefd81242c4e)
 ](https://miro.com/app/board/uXjVKStNlQI=/?share_link_id=418037355467)
+
+# Arquiterua Infraestrutura:
 
 # Tecnologias utilizadas
 ## Back end
@@ -53,31 +58,40 @@ cd food-techchallenge-api
 ./mvnw spring-boot:run
 ```
 # Como rodar usando Docker Desktop:
-bash
-#Instalar o Docker Desktop:
-Link para download: https://www.docker.com/products/docker-desktop/
 
-#Ativar no Dokcer Desktop a opção do Kubernets:
+### Instalar o Docker Desktop:
+## Link para download:
+[![image](https://github.com/user-attachments/assets/a6a28d2e-eb6a-41b7-85b5-e6a3ca5d55a8)](https://www.docker.com/products/docker-desktop/)
 
-Clicar em Settings (Configuração)
+### Ativar no Dokcer Desktop a opção do Kubernets:
+
+### Clicar em Settings (Configuração)
 ![image](https://github.com/user-attachments/assets/52692e2e-3937-49dc-a7b9-c25cfd2e8dbc)
 
-Selecionar opção a esquerda do menu chamada "Kubernetes"
+### Selecionar opção a esquerda do menu chamada "Kubernetes", clicar em "Enable Kubernetes" e depois em "Apply & Start:
 ![image](https://github.com/user-attachments/assets/fdddf1be-fbd3-476e-8eba-0dc235ac309c)
-Clicar em "Enable Kubernetes" e depois em "Apply & Start"
+### Após o Kubernetes incializar, seguir os próximos passos:
 
-Após o Kubernetes incializar, seguir os próximos passos:
-
-# clonar repositório
+### Clonar repositório:
 git clone [https://github.com/grupo27-6soat-fiap/TechChallengeFood.git]
 
-# entrar na pasta do projeto food-techchallenge-api
+### Entrar na pasta do projeto food-techchallenge-api:
 cd food-techchallenge-api
-# Abrir o PowerShell ou o terminal do computador
-# Ordem de execução dos arquivos Yaml:
-1 - Executar os arquivos da pasta food-techchallenge-api/k8s/db.
-2 - Executar os arquivos da pasta food-techchallenge-api/k8s/backend 
-
+### Abrir o PowerShell ou o terminal do computador
+### Ordem de execução dos arquivos Yaml:
+1 - Executar os arquivos da pasta food-techchallenge-api/k8s/db:
+ - 1.1 - Kubectl apply -f .\k8s\db\configmap-db.yaml
+ - 1.2 - Kubectl apply -f .\k8s\db\service-db.yaml
+ - 1.3 - Kubectl apply -f .\k8s\db\deployment-db.yaml
+ - 1.4 - Kubectl apply -f .\k8s\db\pvc-db.yaml
+   
+2 - Executar os arquivos da pasta food-techchallenge-api/k8s/backend:
+ - 2.1 - Kubectl apply -f .\k8s\backend\configmap-api.yaml
+ - 2.2 - Kubectl apply -f .\k8s\backend\service-api.yaml
+ - 2.3 - Kubectl apply -f .\k8s\backend\deployment-api.yaml
+ - 2.4 - Kubectl apply -f .\k8s\backend\componente.yaml
+ - 2.5 - Kubectl apply -f .\k8s\backend\api-hpa.yaml
+   
 ## Linguagem Ubíqua
  ```bash
 # Menu:
