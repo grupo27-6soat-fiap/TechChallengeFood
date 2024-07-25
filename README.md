@@ -31,7 +31,6 @@ Para desenvolver este software, utilizamos a metodologia DDD (Domain-Driven Desi
 
 ## Base de dados
 - MySql
-![image](https://github.com/user-attachments/assets/3f412814-13b6-4ce3-b289-26a97992f029)
 
 ## Implementação
 Para implantar o projeto, utilizamos o conceito de containers com o Docker como ferramenta de gerenciamento. Nosso projeto usa tanto Dockerfile quanto Docker-compose. Utilizamos uma imagem do Java com Spring e uma imagem do MySQL para rodar o banco de dados localmente e realizar as operações de CRUD da nossa aplicação.
@@ -54,7 +53,7 @@ cd food-techchallenge-api
 ./mvnw spring-boot:run
 ```
 # Como rodar usando Docker Desktop:
-```bash
+bash
 #Instalar o Docker Desktop:
 Link para download: https://www.docker.com/products/docker-desktop/
 
@@ -78,7 +77,6 @@ cd food-techchallenge-api
 # Ordem de execução dos arquivos Yaml:
 1 - Executar os arquivos da pasta food-techchallenge-api/k8s/db.
 2 - Executar os arquivos da pasta food-techchallenge-api/k8s/backend 
-```
 
 ## Linguagem Ubíqua
  ```bash
