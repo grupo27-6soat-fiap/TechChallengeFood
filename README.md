@@ -25,7 +25,7 @@ Para desenvolver este software, utilizamos a metodologia DDD (Domain-Driven Desi
 [![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/ac2545b8-8be5-4b5d-8887-aefd81242c4e)
 ](https://miro.com/app/board/uXjVKStNlQI=/?share_link_id=418037355467)
 
-# Arquiterua Infraestrutura:
+# Arquiterua Infraestrutura Kubernetes:
 
 # Tecnologias utilizadas
 ## Back end
