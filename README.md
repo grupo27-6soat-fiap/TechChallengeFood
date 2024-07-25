@@ -52,16 +52,31 @@ cd food-techchallenge-api
 # executar o projeto
 ./mvnw spring-boot:run
 ```
-# Como rodar usando Docker:
+# Como rodar usando Docker Desktop:
 ```bash
+#Instalar o Docker Desktop:
+Link para download: https://www.docker.com/products/docker-desktop/
+
+#Ativar no Dokcer Desktop a opção do Kubernets:
+
+Clicar em Settings (Configuração)
+![image](https://github.com/user-attachments/assets/52692e2e-3937-49dc-a7b9-c25cfd2e8dbc)
+
+Selecionar opção a esquerda do menu chamada "Kubernetes"
+![image](https://github.com/user-attachments/assets/fdddf1be-fbd3-476e-8eba-0dc235ac309c)
+Clicar em "Enable Kubernetes" e depois em "Apply & Start"
+
+Após o Kubernetes incializar, seguir os próximos passos:
+
 # clonar repositório
 git clone [https://github.com/grupo27-6soat-fiap/TechChallengeFood.git]
 
 # entrar na pasta do projeto food-techchallenge-api
 cd food-techchallenge-api
-
-# entrar no terminal e executar o seguinte comando
-docker compose up --build
+# Abrir o PowerShell ou o terminal do computador
+# Ordem de execução dos arquivos Yaml:
+1 - Executar os arquivos da pasta food-techchallenge-api/k8s/db.
+2 - Executar os arquivos da pasta food-techchallenge-api/k8s/backend 
 ```
 
 ## Linguagem Ubíqua
