@@ -15,7 +15,7 @@ Para desenvolver este software, utilizamos a metodologia DDD (Domain-Driven Desi
 ![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/06481679-ca3c-4b1d-a574-80e3fc1adcbc)
 
 # Link Swagger:
-- http://localhost:30002/swagger-ui/index.html
+[![image](https://github.com/user-attachments/assets/dc69b964-62eb-4a09-987f-20741a462d76)](http://localhost:30002/swagger-ui/index.html)
 
 # Para acessar a Collection da API Postman clique na imagem:
 [![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/7c176de0-6cf8-4d62-9b7d-53cccf43caca)
@@ -62,8 +62,8 @@ cd food-techchallenge-api
 ```
 # Como rodar usando Docker Desktop:
 
-### Instalar o Docker Desktop:
-## Link para download:
+## Instalar o Docker Desktop:
+### Link para download:
 [![image](https://github.com/user-attachments/assets/a6a28d2e-eb6a-41b7-85b5-e6a3ca5d55a8)](https://www.docker.com/products/docker-desktop/)
 
 ### Ativar no Dokcer Desktop a opção do Kubernets:
