@@ -34,7 +34,9 @@ public class ProdutoController {
     @Operation(summary = "Cadastrar Produto")
     @ApiResponses(value = { 
   	@ApiResponse(responseCode = "200", description = "Produto cadastrado com sucesso", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Produto.class)) }),
-  	@ApiResponse(responseCode = "500", description = "Ocorreu um erro ao cadastrar o produto", content = @Content), 
+  	@ApiResponse(responseCode = "400", description = "Parâmetros Inválidos", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Produto.class)) }),
+  	@ApiResponse(responseCode = "500", description = "Internal Error", content = @Content), 
+    @ApiResponse(responseCode = "500", description = "Ocorreu um erro ao cadastrar o produto", content = @Content), 
     @ApiResponse(responseCode = "404", description = "Erro", content = @Content) })
     @PostMapping("/cadastrar")
     CreateProdutoResponse cadastrar(@RequestBody CreateProdutoRequest request){

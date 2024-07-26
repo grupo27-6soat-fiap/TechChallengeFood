@@ -11,6 +11,7 @@ import food.techchallenge.api.domain.cliente.exception.ClienteExistenteException
 import food.techchallenge.api.domain.cliente.exception.ClienteNomeEmBrancoException;
 import food.techchallenge.api.domain.cliente.exception.ClienteNotFoundException;
 import food.techchallenge.api.domain.cliente.exception.CpfInvalidException;
+import food.techchallenge.api.domain.produto.exception.ProdutoDadosEmBrancoException;
 
 @ControllerAdvice
 public class CustomExceptionHandler {
@@ -37,6 +38,11 @@ public class CustomExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(mensagem);
     }
     
-
+    @ExceptionHandler(ProdutoDadosEmBrancoException.class)
+    public ResponseEntity<Object> handleProdutoDadosEmBrancoException(ProdutoDadosEmBrancoException ex, WebRequest request) {
+        String mensagem = ex.getMessage();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(mensagem);
+    }
+    
 
 }
