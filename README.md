@@ -129,7 +129,7 @@ cd food-techchallenge-api
  - 2.1 - kubectl apply -f ./k8s/backend/configmap-api.yaml
  - 2.2 - kubectl apply -f ./k8s/backend/service-api.yaml
  - 2.3 - kubectl apply -f ./k8s/backend/deployment-api.yaml
- - 2.4 - kubectl apply -f ./k8s/backend/componente.yaml
+ - 2.4 - kubectl apply -f ./k8s/backend/components.yaml
  - 2.5 - kubectl apply -f ./k8s/backend/api-hpa.yaml
    
 ## Linguagem Ubíqua
