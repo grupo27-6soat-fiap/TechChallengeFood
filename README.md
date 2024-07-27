@@ -1,6 +1,16 @@
 # TechChallengeFood
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/grupo27-6soat-fiap/TechChallengeFood/blob/ac0b311cf474702ef975e8d188af4a854badcd0f/LICENSE)
 
+## GRUPO 27 - 6SOAT 
+
+## Autores
+
+- Henrique Rodrigues da Silva RM 353376
+- Felipe Reis - RM 353932
+- Lucas Marques - RM 353910
+- Lucas Domingues - RM 353900
+
+  
 # Sobre o projeto
 
 TechChallengeFood é um projeto que desenvolve uma aplicação para um restaurante fast food, com ênfase na parte backend. Utilizamos Docker e aplicamos os conceitos de arquitetura hexagonal. Dentro dessa aplicação, documentamos as APIs usando o Swagger. Vale destacar que os requisitos fornecidos aos alunos não incluíam a parte de frontend.
@@ -145,7 +155,7 @@ cd food-techchallenge-api
 ```
 ## Autores
 
-- Henrique Rodriues da Silva RM 353376
+- Henrique Rodrigues da Silva RM 353376
 - Felipe Reis - RM 353932
 - Lucas Marques - RM 353910
 - Lucas Domingues - RM 353900
