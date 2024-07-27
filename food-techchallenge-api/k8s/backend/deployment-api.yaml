@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: projeto-fiap-container
-          image: 'grupo27/techchallengefood:3.0'
+          image: 'grupo27/techchallengefood:4.0'
           ports:
             - containerPort: 8080
           envFrom:
