@@ -114,10 +114,11 @@ cd food-techchallenge-api
 ### Abrir o PowerShell ou o terminal do computador
 ### Ordem de execução dos arquivos Yaml:
 1 - Executar os arquivos da pasta food-techchallenge-api/k8s/db:
- - 1.1 - Kubectl apply -f .\k8s\db\configmap-db.yaml
- - 1.2 - Kubectl apply -f .\k8s\db\service-db.yaml
- - 1.3 - Kubectl apply -f .\k8s\db\deployment-db.yaml
- - 1.4 - Kubectl apply -f .\k8s\db\pvc-db.yaml
+ - 1.1 - Kubectl apply -f .\k8s\db\pvc-db.yaml
+ - 1.2 - Kubectl apply -f .\k8s\db\configmap-db.yaml
+ - 1.3 - Kubectl apply -f .\k8s\db\service-db.yaml
+ - 1.4 - Kubectl apply -f .\k8s\db\deployment-db.yaml
+
    
 2 - Executar os arquivos da pasta food-techchallenge-api/k8s/backend:
  - 2.1 - Kubectl apply -f .\k8s\backend\configmap-api.yaml
