@@ -29,7 +29,11 @@ spec:
             initialDelaySeconds: 20
           resources:
             requests:
-              cpu: 10m    
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"    
   selector:
     matchLabels:
       app: projeto-fiap-pod
