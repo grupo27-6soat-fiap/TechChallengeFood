@@ -10,6 +10,12 @@
 - Lucas Marques - RM 353910
 - Lucas Domingues - RM 353900
 
+## Linkedin
+
+- https://www.linkedin.com/in/felipe-reis-028a38181/
+- https://www.linkedin.com/in/henrique-rodrigues-639873173/
+- https://www.linkedin.com/in/lucas-domingues-de-souza-565720a1/
+- https://www.linkedin.com/in/lucas-marques-a4848a52/
 
 
 # Tecnologias utilizadas
@@ -157,16 +163,3 @@ cd food-techchallenge-api
 - Cupom fiscal: Documento que é gerado caso o cliente deseje ter o  documento após realizar o pagamento.
 - Formas de pagamento: Dinheiro, pix, cartão de crédito, cartã de débito.
 ```
-## Autores
-
-- Henrique Rodrigues da Silva RM 353376
-- Felipe Reis - RM 353932
-- Lucas Marques - RM 353910
-- Lucas Domingues - RM 353900
-
-## Linkedin
-
-- https://www.linkedin.com/in/felipe-reis-028a38181/
-- https://www.linkedin.com/in/henrique-rodrigues-639873173/
-- https://www.linkedin.com/in/lucas-domingues-de-souza-565720a1/
-- https://www.linkedin.com/in/lucas-marques-a4848a52/
