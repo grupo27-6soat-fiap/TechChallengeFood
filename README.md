@@ -67,7 +67,23 @@ cd food-techchallenge-api
 ### Link para download:
 [![image](https://github.com/user-attachments/assets/a6a28d2e-eb6a-41b7-85b5-e6a3ca5d55a8)](https://www.docker.com/products/docker-desktop/)
 
-### Ativar no Dokcer Desktop a opção do Kubernets:
+
+```bash
+# clonar repositório
+git clone [https://github.com/grupo27-6soat-fiap/TechChallengeFood.git]
+
+# entrar na pasta do projeto food-techchallenge-api
+cd food-techchallenge-api
+
+# entrar no terminal e executar o seguinte comando
+docker compose up --build
+```
+
+
+
+# Como rodar usando Kubernetes:
+
+### Ativar no Docker Desktop a opção do Kubernetes:
 
 ### Clicar em Settings (Configuração)
 ![image](https://github.com/user-attachments/assets/52692e2e-3937-49dc-a7b9-c25cfd2e8dbc)
