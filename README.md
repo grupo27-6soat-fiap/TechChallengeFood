@@ -119,18 +119,18 @@ cd food-techchallenge-api
 ### Abrir o PowerShell ou o terminal do computador
 ### Ordem de execução dos arquivos Yaml:
 1 - Executar os arquivos da pasta food-techchallenge-api/k8s/db:
- - 1.1 - Kubectl apply -f .\k8s\db\pvc-db.yaml
- - 1.2 - Kubectl apply -f .\k8s\db\configmap-db.yaml
- - 1.3 - Kubectl apply -f .\k8s\db\service-db.yaml
- - 1.4 - Kubectl apply -f .\k8s\db\deployment-db.yaml
+ - 1.1 - kubectl apply -f .\k8s\db\pvc-db.yaml
+ - 1.2 - kubectl apply -f .\k8s\db\configmap-db.yaml
+ - 1.3 - kubectl apply -f .\k8s\db\service-db.yaml
+ - 1.4 - kubectl apply -f .\k8s\db\deployment-db.yaml
 
    
 2 - Executar os arquivos da pasta food-techchallenge-api/k8s/backend:
- - 2.1 - Kubectl apply -f .\k8s\backend\configmap-api.yaml
- - 2.2 - Kubectl apply -f .\k8s\backend\service-api.yaml
- - 2.3 - Kubectl apply -f .\k8s\backend\deployment-api.yaml
- - 2.4 - Kubectl apply -f .\k8s\backend\componente.yaml
- - 2.5 - Kubectl apply -f .\k8s\backend\api-hpa.yaml
+ - 2.1 - kubectl apply -f .\k8s\backend\configmap-api.yaml
+ - 2.2 - kubectl apply -f .\k8s\backend\service-api.yaml
+ - 2.3 - kubectl apply -f .\k8s\backend\deployment-api.yaml
+ - 2.4 - kubectl apply -f .\k8s\backend\componente.yaml
+ - 2.5 - kubectl apply -f .\k8s\backend\api-hpa.yaml
    
 ## Linguagem Ubíqua
  ```bash
