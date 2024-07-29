@@ -1,8 +1,10 @@
 package food.techchallenge.api.infrastructure.persistence;
 
+import java.time.ZoneId;
 import java.util.Date;
 
 import food.techchallenge.api.domain.pedido.entity.PedidoPagamento;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,7 +36,7 @@ public class PedidoPagamentoEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idPedido", referencedColumnName = "id")
     private PedidoEntity pedido;
     private Long idSistemaExterno;
@@ -42,7 +44,12 @@ public class PedidoPagamentoEntity {
     private Date dataInclusao;
 
     public PedidoPagamento toPedidoPagamento(){
-        return new PedidoPagamento(this.pedido.getId(),  this.idSistemaExterno, this.statusPagamento, this.dataInclusao);
+        if (this.pedido != null){
+            return new PedidoPagamento(this.pedido.getId(),  this.idSistemaExterno, this.statusPagamento, this.dataInclusao.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime().toString());
+        }else{
+            return new PedidoPagamento();
+        }
+        
     }
 
 }

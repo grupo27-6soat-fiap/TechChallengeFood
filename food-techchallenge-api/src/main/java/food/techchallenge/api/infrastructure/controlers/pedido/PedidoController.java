@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import food.techchallenge.api.application.pedidousecases.PedidoInteractor;
 import food.techchallenge.api.domain.pedido.entity.Pedido;
+import food.techchallenge.api.domain.pedido.entity.PedidoPagamento;
 import food.techchallenge.api.domain.pedido.enums.StatusPedido;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -47,10 +48,10 @@ public class PedidoController {
   	@ApiResponse(responseCode = "500", description = "Ocorreu um erro ao realizar o checkout do pedido", content = @Content), 
   	@ApiResponse(responseCode = "404", description = "Erro", content = @Content) })
 	@PutMapping("/checkout")
-	public @ResponseBody String checkout(@RequestBody Pedido pedido) {
+	public @ResponseBody PedidoPagamento checkout(@RequestBody Pedido pedido) {
 
-		pedidoInteractor.checkoutPedido(pedido);
-		return "ID do Pedido " + pedido.getId();
+		return pedidoInteractor.checkoutPedido(pedido);
+		 
 	}
 
 	@Operation(summary = "Lista todos os Pedidos")

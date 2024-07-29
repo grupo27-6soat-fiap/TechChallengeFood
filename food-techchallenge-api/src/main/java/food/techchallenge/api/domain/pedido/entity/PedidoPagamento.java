@@ -1,16 +1,19 @@
 package food.techchallenge.api.domain.pedido.entity;
 
-import java.util.Date;
 
 import food.techchallenge.api.domain.pedido.enums.StatusPagamento;
 
 public class PedidoPagamento {
 
-    public PedidoPagamento(Long idPedido, Long idSistemaExterno, int statusPagamento, Date dataInclusao){
+    public PedidoPagamento(Long idPedido, Long idSistemaExterno, int statusPagamento, String dataInclusao){
         this.idSistemaExterno = idSistemaExterno;
         this.statusPagamento = StatusPagamento.values()[statusPagamento -1];
         this.dataInclusao = dataInclusao;
         this.idPedido = idPedido;
+
+    }
+
+    public PedidoPagamento(){
 
     }
 
@@ -38,11 +41,11 @@ public class PedidoPagamento {
         this.statusPagamento = statusPagamento;
     }
 
-    private Date dataInclusao;
-    public Date getDataInclusao() {
+    private String  dataInclusao;
+    public String  getDataInclusao() {
         return dataInclusao;
     }
-    public void setDataInclusao(Date dataInclusao) {
+    public void setDataInclusao(String dataInclusao) {
         this.dataInclusao = dataInclusao;
     }
 

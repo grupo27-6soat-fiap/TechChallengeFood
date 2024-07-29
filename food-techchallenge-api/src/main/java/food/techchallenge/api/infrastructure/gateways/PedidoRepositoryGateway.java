@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import food.techchallenge.api.application.gateways.PedidoGateway;
 import food.techchallenge.api.domain.pedido.entity.Pedido;
+import food.techchallenge.api.domain.pedido.entity.PedidoPagamento;
 import food.techchallenge.api.domain.pedido.enums.StatusPagamento;
 import food.techchallenge.api.domain.pedido.enums.StatusPedido;
 import food.techchallenge.api.domain.produtopedido.entity.ProdutoPedido;
@@ -109,7 +110,7 @@ public class PedidoRepositoryGateway implements PedidoGateway {
             PedidoPagamentoEntity pedidoPagamentoEntity = pedidoOpt.get();
             if (pedidoPagamentoEntity.getStatusPagamento() == StatusPagamento.AguardandoPagamento.getCodigo()) {
                 if (webhookPayload.getStatus().equals("Pagamento Confirmado")) {
-                    atualizarStatus(pedidoPagamentoEntity.getId(), StatusPedido.EmPreparacao);
+                    atualizarStatus(pedidoPagamentoEntity.getPedido().getId(), StatusPedido.EmPreparacao);
                     atualizarStatusPagamento(pedidoPagamentoEntity.getIdSistemaExterno(),
                             StatusPagamento.PagamentoAprovado);
                 } else if (webhookPayload.getStatus().equals("Pagamento Reprovado")) {
@@ -122,7 +123,8 @@ public class PedidoRepositoryGateway implements PedidoGateway {
     }
 
     @Override
-    public void checkoutPedido(Pedido pedido) {
+    public PedidoPagamento checkoutPedido(Pedido pedido) {
+        PedidoPagamentoEntity pedidoPagamentoEntity = new PedidoPagamentoEntity();
         Optional<PedidoEntity> pediOptional = pedidoRepository.findById(pedido.getId());
         if (pediOptional.isPresent()) {
             if (pediOptional.get().getPedidoPagamento() == null) {
@@ -131,7 +133,6 @@ public class PedidoRepositoryGateway implements PedidoGateway {
                 ZonedDateTime zonedDateTime = localDateTime.atZone(ZoneId.systemDefault());
                 Instant instant = zonedDateTime.toInstant();
                 Date dataInclusao = Date.from(instant);
-                PedidoPagamentoEntity pedidoPagamentoEntity = new PedidoPagamentoEntity();
                 pedidoPagamentoEntity.setPedido(pediOptional.get());
                 pedidoPagamentoEntity.setIdSistemaExterno(idSistemaExterno);
                 pedidoPagamentoEntity.setStatusPagamento(StatusPagamento.AguardandoPagamento.getCodigo());
@@ -140,6 +141,8 @@ public class PedidoRepositoryGateway implements PedidoGateway {
             }
 
         }
+
+        return pedidoPagamentoEntity.toPedidoPagamento();
 
     }
 

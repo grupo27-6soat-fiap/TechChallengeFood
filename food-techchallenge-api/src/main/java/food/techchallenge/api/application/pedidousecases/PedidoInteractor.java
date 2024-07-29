@@ -4,6 +4,7 @@ import java.util.List;
 
 import food.techchallenge.api.application.gateways.PedidoGateway;
 import food.techchallenge.api.domain.pedido.entity.Pedido;
+import food.techchallenge.api.domain.pedido.entity.PedidoPagamento;
 import food.techchallenge.api.domain.pedido.enums.StatusPedido;
 import food.techchallenge.api.domain.webhook.WebhookPayload;
 
@@ -19,8 +20,8 @@ public class PedidoInteractor {
         pedidoGateway.cadastrarPedido(pedido);
     }
 
-    public void checkoutPedido(Pedido pedido){
-        pedidoGateway.checkoutPedido(pedido);
+    public PedidoPagamento checkoutPedido(Pedido pedido){
+        return pedidoGateway.checkoutPedido(pedido);
     }
 
     public List<Pedido> listarPedidos(){

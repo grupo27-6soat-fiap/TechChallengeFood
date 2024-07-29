@@ -6,6 +6,7 @@ import java.util.List;
 
 import food.techchallenge.api.domain.cliente.entity.Cliente;
 import food.techchallenge.api.domain.pedido.entity.Pedido;
+import food.techchallenge.api.domain.pedido.entity.PedidoPagamento;
 import food.techchallenge.api.domain.pedido.enums.StatusPedido;
 import food.techchallenge.api.domain.produtopedido.entity.ProdutoPedido;
 import jakarta.persistence.CascadeType;
@@ -52,8 +53,7 @@ public class PedidoEntity implements Serializable{
 	private Double valorTotal;
 	private int statusPedido;
 	private int codigoFormaPagamento;
-	@OneToOne
-	@JoinColumn(name = "id", referencedColumnName = "id")
+	@OneToOne(mappedBy = "pedido")
 	private PedidoPagamentoEntity pedidoPagamento;
 	private int tempoDecorrido;
 
@@ -64,7 +64,7 @@ public class PedidoEntity implements Serializable{
 			produtosPedido.add(produtoPedido);
 		}
 		
-		return new Pedido(this.id, this.cliente != null ? this.cliente.toCliente() : new Cliente(), produtosPedido, StatusPedido.values()[this.statusPedido -1], this.getValorTotal(), this.codigoFormaPagamento, this.pedidoPagamento.toPedidoPagamento(), this.tempoDecorrido);
+		return new Pedido(this.id, this.cliente != null ? this.cliente.toCliente() : new Cliente(), produtosPedido, StatusPedido.values()[this.statusPedido -1], this.getValorTotal(), this.codigoFormaPagamento, this.pedidoPagamento != null ? this.pedidoPagamento.toPedidoPagamento() : new PedidoPagamento(), this.tempoDecorrido);
 	}
 	
 }
