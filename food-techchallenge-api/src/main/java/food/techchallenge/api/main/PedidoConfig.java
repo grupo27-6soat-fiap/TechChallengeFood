@@ -7,6 +7,7 @@ import food.techchallenge.api.application.gateways.PedidoGateway;
 import food.techchallenge.api.application.pedidousecases.PedidoInteractor;
 import food.techchallenge.api.infrastructure.gateways.PedidoRepositoryGateway;
 import food.techchallenge.api.infrastructure.persistence.ClienteRepository;
+import food.techchallenge.api.infrastructure.persistence.PedidoPagamentoRepository;
 import food.techchallenge.api.infrastructure.persistence.PedidoProdutoRepository;
 import food.techchallenge.api.infrastructure.persistence.PedidoRepository;
 import food.techchallenge.api.infrastructure.persistence.ProdutoRepository;
@@ -25,9 +26,10 @@ public class PedidoConfig {
     PedidoGateway pedidoGateway(PedidoRepository pedidoRepository,
                                   ProdutoRepository produtoRepository,
                                   ClienteRepository clienteRepository,
-                                  PedidoProdutoRepository produtoPedidoRepository){
+                                  PedidoProdutoRepository produtoPedidoRepository,
+                                  PedidoPagamentoRepository pedidoPagamentoRepository){
        
-        return new PedidoRepositoryGateway(pedidoRepository,produtoRepository,clienteRepository,produtoPedidoRepository);
+        return new PedidoRepositoryGateway(pedidoRepository,produtoRepository,clienteRepository,produtoPedidoRepository, pedidoPagamentoRepository);
     
     }
 

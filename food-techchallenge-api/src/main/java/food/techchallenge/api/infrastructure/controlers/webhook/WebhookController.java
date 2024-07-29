@@ -31,9 +31,6 @@ public class WebhookController {
   	@ApiResponse(responseCode = "404", description = "Erro", content = @Content) })
     @PostMapping("/pagamento")
     public void handleWebhook(@RequestBody WebhookPayload payload) {
-        System.out.println("Recebi um webhook!");
-        System.out.println("Status: " + payload.getStatus());
-        System.out.println("ID do pedido: " + payload.getIdPedido());
         pedidoInteractor.confirmarPagamento(payload);
         
     }

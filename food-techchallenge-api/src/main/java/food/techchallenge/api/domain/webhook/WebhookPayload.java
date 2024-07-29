@@ -3,9 +3,8 @@ package food.techchallenge.api.domain.webhook;
 
 public class WebhookPayload {
     private String status;
-    private Long idPedido;
+    private Long idSistemaExterno;
 
-   
     public String getStatus() {
         return status;
     }
@@ -13,13 +12,12 @@ public class WebhookPayload {
     public void setStatus(String status) {
         this.status = status;
     }
-
-    public Long getIdPedido() {
-        return idPedido;
+    public Long getIdSistemaExterno() {
+        return idSistemaExterno;
     }
 
-    public void setIdPedido(Long idPedido) {
-        this.idPedido = idPedido;
+    public void setIdSistemaExterno(Long idSistemaExterno) {
+        this.idSistemaExterno = idSistemaExterno;
     }
 
 }

@@ -16,6 +16,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -51,6 +52,9 @@ public class PedidoEntity implements Serializable{
 	private Double valorTotal;
 	private int statusPedido;
 	private int codigoFormaPagamento;
+	@OneToOne
+	@JoinColumn(name = "id", referencedColumnName = "id")
+	private PedidoPagamentoEntity pedidoPagamento;
 	private int tempoDecorrido;
 
 	public Pedido toPedido(){
@@ -60,7 +64,7 @@ public class PedidoEntity implements Serializable{
 			produtosPedido.add(produtoPedido);
 		}
 		
-		return new Pedido(this.id, this.cliente != null ? this.cliente.toCliente() : new Cliente(), produtosPedido, StatusPedido.values()[this.statusPedido -1], this.getValorTotal(), this.codigoFormaPagamento, this.tempoDecorrido);
+		return new Pedido(this.id, this.cliente != null ? this.cliente.toCliente() : new Cliente(), produtosPedido, StatusPedido.values()[this.statusPedido -1], this.getValorTotal(), this.codigoFormaPagamento, this.pedidoPagamento.toPedidoPagamento(), this.tempoDecorrido);
 	}
 	
 }

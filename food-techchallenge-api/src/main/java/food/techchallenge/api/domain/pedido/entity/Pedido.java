@@ -9,7 +9,7 @@ import food.techchallenge.api.domain.produtopedido.entity.ProdutoPedido;
 
 public class Pedido {
 
-	public Pedido(Long id, Cliente cliente, List<ProdutoPedido> produtos, StatusPedido statusPedido, Double valorTotal, int codigoFormaPagamento, int tempoDecorrido){
+	public Pedido(Long id, Cliente cliente, List<ProdutoPedido> produtos, StatusPedido statusPedido, Double valorTotal, int codigoFormaPagamento, PedidoPagamento pedidoPagamento, int tempoDecorrido){
 
 		this.id = id;
 		this.cliente = cliente;
@@ -17,6 +17,7 @@ public class Pedido {
 		this.statusPedido = statusPedido;
 		this.valorTotal = valorTotal;
 		this.codigoFormaPagamento = codigoFormaPagamento;
+		this.pedidoPagamento = pedidoPagamento;
 		this.tempoDecorrido = tempoDecorrido;
 	}
 
@@ -26,6 +27,7 @@ public class Pedido {
 	private StatusPedido statusPedido;
 	private Double valorTotal; 
 	private int codigoFormaPagamento;
+	private PedidoPagamento pedidoPagamento;
 	private int tempoDecorrido;
 	
 	public Long getId() {
@@ -69,6 +71,12 @@ public class Pedido {
 	}
 	public void setValorTotal(Double valorTotal) {
 		this.valorTotal = valorTotal;
+	}
+	public PedidoPagamento getPedidoPagamento() {
+		return pedidoPagamento;
+	}
+	public void setPedidoPagamento(PedidoPagamento pedidoPagamento) {
+		this.pedidoPagamento = pedidoPagamento;
 	}
 	
 
