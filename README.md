@@ -37,21 +37,21 @@ TechChallengeFood é um projeto que desenvolve uma aplicação para um restauran
 O objetivo deste projeto é implementar um sistema que atenda às necessidades dos clientes, incluindo funcionários, proprietários e usuários do restaurante. O sistema visa proporcionar autonomia, escalabilidade, resiliência e praticidade em todos os aspectos de sua implementação.
 
 Para desenvolver este software, utilizamos a metodologia DDD (Domain-Driven Design). Aplicando esses conceitos, conseguimos nos aprofundar nos requisitos e proporcionar uma experiência agradável e eficiente aos nossos clientes.
-## Swagger
+# Swagger
 ![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/555e0c0a-8764-4cc8-b62f-9ff404b92ea3)
+
+### Link Swagger (Executar após rodar a aplicação no Kubernetes):
+[![Swagger](https://img.shields.io/badge/Swagger-%2380BFFF.svg?style=for-the-badge&logo=swagger&logoColor=white)](http://localhost:30002/swagger-ui/index.html)
 
 ## Domain-driven design
 ![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/06481679-ca3c-4b1d-a574-80e3fc1adcbc)
 
-# Link Swagger (Executar após rodar a aplicação no Kubernetes):
-[![image](https://github.com/user-attachments/assets/dc69b964-62eb-4a09-987f-20741a462d76)](http://localhost:30002/swagger-ui/index.html)
-
 # Para acessar a Collection da API Postman clique na imagem:
-[![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/7c176de0-6cf8-4d62-9b7d-53cccf43caca)
+[![Postman](https://img.shields.io/badge/Postman-%23FF6C37.svg?style=for-the-badge&logo=postman&logoColor=white)
 ](https://github.com/grupo27-6soat-fiap/TechChallengeFood/blob/d3f3ef36e8a29110127a1fbbd6bbf869c77d5dfc/CollectionAPIPostman.json)
 
 # Para acessar o Miro clique na imagem:
-[![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/ac2545b8-8be5-4b5d-8887-aefd81242c4e)
+[![Miro](https://img.shields.io/badge/Miro-%2300B2A9.svg?style=for-the-badge&logo=miro&logoColor=white)
 ](https://miro.com/app/board/uXjVKStNlQI=/?share_link_id=418037355467)
 
 # Arquiterua Infraestrutura Kubernetes:
@@ -60,7 +60,7 @@ Visando atender os requisitos do nosso projeto utilizamos a arquitetura Kubernet
 
 
 ## Link Youtube:
-![image](https://github.com/user-attachments/assets/ce9ce3df-5439-412e-b9f4-7a09dc9db5a9)
+![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=youtube&logoColor=white)
 
 ## Implementação
 Para implantar o projeto, utilizamos o conceito de containers com o Docker como ferramenta de gerenciamento. Nosso projeto usa tanto Dockerfile quanto Docker-compose. Utilizamos uma imagem do Java com Spring e uma imagem do MySQL para rodar o banco de dados localmente e realizar as operações de CRUD da nossa aplicação.
@@ -86,7 +86,7 @@ cd food-techchallenge-api
 
 ## Instalar o Docker Desktop:
 ### Link para download:
-[![image](https://github.com/user-attachments/assets/a6a28d2e-eb6a-41b7-85b5-e6a3ca5d55a8)](https://www.docker.com/products/docker-desktop/)
+[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/products/docker-desktop/)
 
 
 ```bash
@@ -104,7 +104,7 @@ docker compose up --build
 
 # Como rodar usando Kubernetes:
 
-### Ativar no Docker Desktop a opção do Kubernetes:
+### Após instalar o Docker Desktop, ativar no Docker Desktop a opção do Kubernetes:
 
 ### Clicar em Settings (Configuração)
 ![image](https://github.com/user-attachments/assets/74403f54-8ec9-45f2-913d-ffb8b6c6e634)
@@ -135,6 +135,11 @@ cd food-techchallenge-api
  - 2.4 - kubectl apply -f ./k8s/backend/components.yaml
  - 2.5 - kubectl apply -f ./k8s/backend/api-hpa.yaml
    
+3 - Alterar a porta da rota no postman quando o Kubernetes estiver rodando
+  - Porta: 30002 (Kubernetes)
+  - Porta: 8080 (Local)
+![image](https://github.com/user-attachments/assets/95f7c9bb-b7bb-4b20-ad6b-60501e4c3905)
+
 ## Linguagem Ubíqua
  ```bash
 # Menu:
