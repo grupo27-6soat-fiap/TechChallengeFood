@@ -1,296 +1,428 @@
 {
 	"info": {
-		"_postman_id": "16fd225e-e8ac-4cde-b0ee-85af533834b8",
+		"_postman_id": "22336e77-beab-4e0f-a217-2e0482175c18",
 		"name": "Food - TechChallenge",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "9604553"
+		"_exporter_id": "6695097"
 	},
 	"item": [
 		{
-			"name": "Cliente",
+			"name": "Local",
 			"item": [
 				{
-					"name": "cadastrar",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \"nome\": \"Felipe Reis\",\r\n\"cpf\" : \"38553207803\" ,\r\n\"email\" : \"felipereis1992@gmail.com\"\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "Cliente",
+					"item": [
+						{
+							"name": "cadastrar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \"nome\": \"Felipe Reis\",\r\n\"cpf\" : \"83560584060\" ,\r\n\"email\" : \"felipereis1992@fiap.com\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}:{{port}}/cliente/cadastrar",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"cliente",
+										"cadastrar"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:8080/cliente/cadastrar",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cliente",
-								"cadastrar"
-							]
+						{
+							"name": "obter",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \"nome\": \"Cliente22\",\r\n\"cpf\" : \"054\" ,\r\n\"email\" : \"email@email.com\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}:{{port}}/cliente?id=83560584060",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"cliente"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "83560584060"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listar",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \"nome\": \"Cliente22\",\r\n\"cpf\" : \"054\" ,\r\n\"email\" : \"email@email.com\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}:{{port}}/cliente/listar",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"cliente",
+										"listar"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "obter",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \"nome\": \"Cliente22\",\r\n\"cpf\" : \"054\" ,\r\n\"email\" : \"email@email.com\"\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "Produto",
+					"item": [
+						{
+							"name": "cadastrar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Guaraná Antartica\",\r\n  \"categoria\": \"Bebida\",\r\n  \"descricao\": \"Refrigerante \",\r\n  \"preco\": 8.0,\r\n  \"imagem\": \"/imagens/bebida/coca-cola.jpg\",\r\n  \"isAtivo\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}:{{port}}/produto/cadastrar",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"produto",
+										"cadastrar"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:8080/cliente?id=38553207803",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cliente"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "38553207803"
+						{
+							"name": "excluir",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \"nome\": \"Coca Cola\",\r\n\"categoria\" : \"Bebida\",\r\n\"descricao\" : \" Coca - Cola \",\r\n\"preco\" : \"12.00\" ,\r\n\"imagem\" : \"/images/coca.jpeg\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}:{{port}}/produto/excluir/2",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"produto",
+										"excluir",
+										"2"
+									]
 								}
-							]
+							},
+							"response": []
+						},
+						{
+							"name": "listar",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \"nome\": \"Cliente22\",\r\n\"cpf\" : \"054\" ,\r\n\"email\" : \"email@email.com\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}:{{port}}/produto/listar",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"produto",
+										"listar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listar por categoria",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{host}}:{{port}}/produto/listarPorCategoria/Bebida",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"produto",
+										"listarPorCategoria",
+										"Bebida"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "listar",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \"nome\": \"Cliente22\",\r\n\"cpf\" : \"054\" ,\r\n\"email\" : \"email@email.com\"\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "Pedido",
+					"item": [
+						{
+							"name": "cadastrar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"cliente\": {\r\n    \"id\": 1\r\n  },\r\n  \"produtos\": [\r\n    {\r\n      \"produto\": {\r\n        \"id\": 1,\r\n        \"nome\": \"Coca Cola\",\r\n        \"categoria\": \"Bebida\",\r\n        \"descricao\": \"Refrigerante\",\r\n        \"preco\": 8.0,\r\n        \"imagem\": \"/imagens/bebida/coca-cola.jpg\",\r\n        \"isAtivo\": true\r\n      },\r\n      \"quantidade\": 1,\r\n      \"valorProduto\": 8.0\r\n    }\r\n  ],\r\n  \"statusPedido\": \"Recebido\",\r\n  \"valorTotal\": 8.0,\r\n  \"codigoFormaPagamento\": 1,\r\n  \"tempoDecorrido\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}:{{port}}/pedido/cadastrar",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"pedido",
+										"cadastrar"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:8080/cliente/listar",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cliente",
-								"listar"
-							]
+						{
+							"name": "pagamento",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"status\": \"Pagamento Confirmado\",\r\n  \"idSistemaExterno\": 1722268668970\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}:{{port}}/webhook/pagamento",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"webhook",
+										"pagamento"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listar",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \"nome\": \"Cliente22\",\r\n\"cpf\" : \"054\" ,\r\n\"email\" : \"email@email.com\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}:{{port}}/pedido/listar",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"pedido",
+										"listar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "atualizarStatus",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}:{{port}}/pedido/atualizar?statusPedido=Pronto",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"pedido",
+										"atualizar"
+									],
+									"query": [
+										{
+											"key": "statusPedido",
+											"value": "Pronto"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "checkout",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}:{{port}}/pedido/checkout",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"pedido",
+										"checkout"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
 		},
 		{
-			"name": "Produto",
-			"item": [
-				{
-					"name": "cadastrar",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \r\n\"nome\": \"Coca Cola\",\r\n\"categoria\" : \"Bebida\",\r\n\"descricao\" : \" Coca - Cola \",\r\n\"preco\" : \"12.00\" ,\r\n\"imagem\" : \"/images/coca.jpeg\"\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/produto/cadastrar",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"produto",
-								"cadastrar"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "excluir",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \"nome\": \"Coca Cola\",\r\n\"categoria\" : \"Bebida\",\r\n\"descricao\" : \" Coca - Cola \",\r\n\"preco\" : \"12.00\" ,\r\n\"imagem\" : \"/images/coca.jpeg\"\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/produto/excluir/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"produto",
-								"excluir",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "listar",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \"nome\": \"Cliente22\",\r\n\"cpf\" : \"054\" ,\r\n\"email\" : \"email@email.com\"\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/produto/listar",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"produto",
-								"listar"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "listar por categoria",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/produto/listarPorCategoria/Bebida",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"produto",
-								"listarPorCategoria",
-								"Bebida"
-							]
-						}
-					},
-					"response": []
-				}
-			]
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost",
+			"type": "string"
 		},
 		{
-			"name": "Pedido",
-			"item": [
-				{
-					"name": "cadastrar",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"idCliente\": 1,\r\n  \"produtos\": [\r\n    {\r\n      \"idProduto\": 1,\r\n      \"quantidade\": 2,\r\n      \"valorProduto\": 20\r\n    }\r\n  ],\r\n  \"statusPedido\": \"Novo\",\r\n  \"codigoFormaPagamento\": 1,\r\n  \"tempoDecorrido\":0\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/pedido/cadastrar",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"pedido",
-								"cadastrar"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "listar",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \"nome\": \"Cliente22\",\r\n\"cpf\" : \"054\" ,\r\n\"email\" : \"email@email.com\"\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/pedido/listar",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"pedido",
-								"listar"
-							]
-						}
-					},
-					"response": []
-				}
-			]
+			"key": "port",
+			"value": "8080",
+			"type": "string"
 		}
 	]
 }
