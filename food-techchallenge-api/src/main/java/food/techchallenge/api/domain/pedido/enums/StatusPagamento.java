@@ -1,15 +1,14 @@
 package food.techchallenge.api.domain.pedido.enums;
 
-public enum StatusPedido {
-    Recebido(1, "Recebido"),
-    EmPreparacao(2, "Em Preparação"),
-    Pronto(3, "Pronto"),
-    Finalizado(4, "Finalizado");
+public enum StatusPagamento {
+    AguardandoPagamento(1, "Aguardando Pagamento"),
+    PagamentoAprovado(2, "Pagamento Aprovado"),
+    PagamentoReprovado(3, "Pagamento Reprovado");
 
     private final int codigo;
     private final String descricao;
 
-    StatusPedido(int codigo, String descricao){
+    StatusPagamento(int codigo, String descricao){
         this.codigo = codigo;
         this.descricao = descricao;
     }
@@ -20,4 +19,5 @@ public enum StatusPedido {
     public String getDescricao() {
         return descricao;
     }
+
 }

@@ -46,3 +46,14 @@ create table produtoPedido(
     FOREIGN KEY(idProduto) REFERENCES produto(id),
     FOREIGN KEY(idPedido) REFERENCES pedido(id)
 );
+
+create table pedidoPagamento(
+    id bigint auto_increment,
+    idPedido bigint,
+    idSistemaExterno bigint,
+    statusPagamento int,
+    dataInclusao datetime,
+
+    primary key(id),
+    FOREIGN KEY(idPedido) REFERENCES pedido(id)
+)
