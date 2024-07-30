@@ -59,6 +59,8 @@ Visando atender os requisitos do nosso projeto utilizamos a arquitetura Kubernet
 ![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/blob/9ad3c14929a53c745bbb648bb42a8d6aeaff7607/Arquitetura.drawio.png)
 
 
+## Link Youtube:
+![image](https://github.com/user-attachments/assets/ce9ce3df-5439-412e-b9f4-7a09dc9db5a9)
 
 ## Implementação
 Para implantar o projeto, utilizamos o conceito de containers com o Docker como ferramenta de gerenciamento. Nosso projeto usa tanto Dockerfile quanto Docker-compose. Utilizamos uma imagem do Java com Spring e uma imagem do MySQL para rodar o banco de dados localmente e realizar as operações de CRUD da nossa aplicação.
