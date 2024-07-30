@@ -43,12 +43,12 @@ Para desenvolver este software, utilizamos a metodologia DDD (Domain-Driven Desi
 ## Domain-driven design
 ![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/06481679-ca3c-4b1d-a574-80e3fc1adcbc)
 
-# Link Swagger:
+# Link Swagger (Executar após rodar a aplicação no Kubernetes):
 [![image](https://github.com/user-attachments/assets/dc69b964-62eb-4a09-987f-20741a462d76)](http://localhost:30002/swagger-ui/index.html)
 
 # Para acessar a Collection da API Postman clique na imagem:
 [![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/7c176de0-6cf8-4d62-9b7d-53cccf43caca)
-](https://github.com/grupo27-6soat-fiap/CollectionAPIPostman.json)
+](https://github.com/grupo27-6soat-fiap/TechChallengeFood/blob/d3f3ef36e8a29110127a1fbbd6bbf869c77d5dfc/CollectionAPIPostman.json)
 
 # Para acessar o Miro clique na imagem:
 [![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/ac2545b8-8be5-4b5d-8887-aefd81242c4e)
@@ -105,10 +105,11 @@ docker compose up --build
 ### Ativar no Docker Desktop a opção do Kubernetes:
 
 ### Clicar em Settings (Configuração)
-![image](https://github.com/user-attachments/assets/52692e2e-3937-49dc-a7b9-c25cfd2e8dbc)
+![image](https://github.com/user-attachments/assets/74403f54-8ec9-45f2-913d-ffb8b6c6e634)
 
 ### Selecionar opção a esquerda do menu chamada "Kubernetes", clicar em "Enable Kubernetes" e depois em "Apply & Start:
-![image](https://github.com/user-attachments/assets/fdddf1be-fbd3-476e-8eba-0dc235ac309c)
+![image](https://github.com/user-attachments/assets/15e37689-fea7-4691-8a90-8354fbac258c)
+
 ### Após o Kubernetes incializar, seguir os próximos passos:
 
 ### Clonar repositório:
