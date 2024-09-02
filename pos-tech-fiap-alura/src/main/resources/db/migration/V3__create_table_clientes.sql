@@ -1,9 +1,0 @@
-CREATE TABLE clientes
-(
-    id    BIGINT AUTO_INCREMENT PRIMARY KEY,
-    cpf   VARCHAR(11)  NULL UNIQUE,
-    nome  VARCHAR(255) NULL,
-    email VARCHAR(255) NULL,
-    anonimo BOOLEAN NOT NULL,
-    data_hora_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
