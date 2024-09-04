@@ -1,31 +1,78 @@
-# temp container to build using gradle
-FROM gradle:8.4.0-jdk17 AS TEMP_BUILD_IMAGE
-ENV APP_HOME=/usr/app/
-WORKDIR $APP_HOME
-COPY build.gradle settings.gradle $APP_HOME
+name: Java CI with Gradle
 
-COPY gradle $APP_HOME/gradle
-COPY --chown=gradle:gradle . /home/gradle/src
-USER root
-RUN chown -R gradle /home/gradle/src
+on:
+  push:
+    branches: [ "feature/pipeline2" ]
+  pull_request:
+    branches: [ "main" ]
 
-RUN gradle build || return 0
-COPY . .
-RUN gradle clean build
+env:
+  ECR_REPOSITORY: lanchonete
+  EKS_CLUSTER_NAME: cluster_g57
+  AWS_REGION: us-east-1
 
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: Set short git commit SHA
+        id: commit
+        uses: prompt/actions-commit-hash@v3
 
-FROM amazoncorretto:17-alpine3.18-jdk
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-ENV ARTIFACT_NAME=lanchonete-0.0.1-SNAPSHOT.jar
-ENV APP_HOME=/usr/app/
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '17'
 
-# Set the working directory in the container
-WORKDIR $APP_HOME
+      - name: Build with Gradle
+        run: |
+          ./gradlew build --no-daemon
 
-# Copy the Gradle build files
-COPY --from=TEMP_BUILD_IMAGE $APP_HOME/build/libs/$ARTIFACT_NAME .
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Package
+          path: build/libs
 
-EXPOSE 8080
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
 
-ENTRYPOINT exec java -jar ${ARTIFACT_NAME}
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build, tag, and push the image to Amazon ECR
+        id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
+          IMAGE_TAG: ${{ steps.commit.outputs.short }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          echo "Pushing image to ECR..."
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+      - name: Update kube config
+        run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
+
+      - name: Deploy to EKS
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
+          IMAGE_TAG: ${{ steps.commit.outputs.short }}
+          RDS_HOSTNAME: ${{ secrets.RDS_HOSTNAME }}
+        run: |
+    
+          sed -i.bak "s|adrianbp/lanchonete-myapp:1.0.8|$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG|g" k8s/deployment-app.yml && \
+          sed -i.bak "s|jdbc:postgresql://postgres-svc:5432/postgres|jdbc:postgresql://$RDS_HOSTNAME:5432/postgres|g" k8s/deployment-app.yml && \
+          echo "Deploying to EKS..."
+          kubectl apply -f k8s/deployment-app.yml
