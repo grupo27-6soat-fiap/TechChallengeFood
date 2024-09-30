@@ -1,5 +1,5 @@
-# TechChallengeFood
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/grupo27-6soat-fiap/TechChallengeFood/blob/ac0b311cf474702ef975e8d188af4a854badcd0f/LICENSE)
+# FoodTech
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/grupo27-6soat-fiap/FoodTech/blob/ac0b311cf474702ef975e8d188af4a854badcd0f/LICENSE)
 
 ## GRUPO 27 - 6SOAT 
 
@@ -19,36 +19,37 @@
 
 
 # Tecnologias utilizadas
-## Back end
-- ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
-- ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
-- ![Apache Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
--	![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
--	![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white)
 
+- ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+- ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+- ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+- ![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)
+- ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+- ![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white)
 
 ## Base de dados
 - ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
   
 # Sobre o projeto
 
-TechChallengeFood é um projeto que desenvolve uma aplicação para um restaurante fast food, com ênfase na parte backend. Utilizamos Docker e aplicamos os conceitos de arquitetura hexagonal. Dentro dessa aplicação, documentamos as APIs usando o Swagger. Vale destacar que os requisitos fornecidos aos alunos não incluíam a parte de frontend.
+FoodTech é um projeto que desenvolve uma aplicação para um restaurante fast food, com ênfase na parte backend. Utilizamos Docker e aplicamos os conceitos de arquitetura hexagonal. Dentro dessa aplicação, documentamos as APIs usando o Swagger. Vale destacar que os requisitos fornecidos aos alunos não incluíam a parte de frontend.
 
 O objetivo deste projeto é implementar um sistema que atenda às necessidades dos clientes, incluindo funcionários, proprietários e usuários do restaurante. O sistema visa proporcionar autonomia, escalabilidade, resiliência e praticidade em todos os aspectos de sua implementação.
 
 Para desenvolver este software, utilizamos a metodologia DDD (Domain-Driven Design). Aplicando esses conceitos, conseguimos nos aprofundar nos requisitos e proporcionar uma experiência agradável e eficiente aos nossos clientes.
+
 # Swagger
-![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/555e0c0a-8764-4cc8-b62f-9ff404b92ea3)
+![image](https://github.com/grupo27-6soat-fiap/FoodTech/assets/167378602/555e0c0a-8764-4cc8-b62f-9ff404b92ea3)
 
 ### Link Swagger (Executar após rodar a aplicação no Kubernetes):
 [![Swagger](https://img.shields.io/badge/Swagger-%2380BFFF.svg?style=for-the-badge&logo=swagger&logoColor=white)](http://localhost:30002/swagger-ui/index.html)
 
 ## Domain-driven design
-![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/assets/167378602/06481679-ca3c-4b1d-a574-80e3fc1adcbc)
+![image](https://github.com/grupo27-6soat-fiap/FoodTech/assets/167378602/06481679-ca3c-4b1d-a574-80e3fc1adcbc)
 
 # Para acessar a Collection da API Postman clique na imagem:
 [![Postman](https://img.shields.io/badge/Postman-%23FF6C37.svg?style=for-the-badge&logo=postman&logoColor=white)
-](https://github.com/grupo27-6soat-fiap/TechChallengeFood/blob/d3f3ef36e8a29110127a1fbbd6bbf869c77d5dfc/CollectionAPIPostman.json)
+](https://github.com/grupo27-6soat-fiap/FoodTech/blob/d3f3ef36e8a29110127a1fbbd6bbf869c77d5dfc/CollectionAPIPostman.json)
 
 # Para acessar o Miro clique na imagem:
 [![Miro](https://img.shields.io/badge/Miro-%2300B2A9.svg?style=for-the-badge&logo=miro&logoColor=white)
@@ -56,7 +57,7 @@ Para desenvolver este software, utilizamos a metodologia DDD (Domain-Driven Desi
 
 # Arquiterua Infraestrutura Kubernetes:
 Visando atender os requisitos do nosso projeto utilizamos a arquitetura Kubernetes em conjunto com o Docker como provedor de infraestrutura, aproveitando ao máximo os recursos nativos oferecidos pela plataforma. Dentro do cluster Kubernetes, estabelecemos o namespace "food-techchallenge-api" para agrupar todos os recursos diretamente relacionados à nossa aplicação. Além disso, reservamos o namespace "db_techfood" para nosso banco de dados gerenciado internamente pelo Kubernetes. Dentro do namespace "food-techchallenge-api", adotamos uma abordagem de segmentação dos componentes com base em suas responsabilidades específicas, o que facilita a visualização e compreensão da nossa estrutura arquitetônica. Essa prática visa proporcionar uma organização clara e intuitiva dos elementos que compõem a aplicação. Na imagem abaixo ilustramos como está sendo arquitetado o processo e também a comunicação entre eles, onde estamos expondo para a internet na porta 30002 nossa aplicação Java com Springboot e intermante na temos a aplicação MySql sendo executada em um outro pode, para persistir os dados criamos um volume para o banco e toda essa comunicação da aplicação com a base de dados está sendo feita através das services, para provisionar uma escalabilidade ao nosso projeto estamos utilizando o HPA que é responsável por verificar as métricas dos pod's e criar replicas para atender a necessidade de requisições.
-![image](https://github.com/grupo27-6soat-fiap/TechChallengeFood/blob/9ad3c14929a53c745bbb648bb42a8d6aeaff7607/Arquitetura.drawio.png)
+![image](https://github.com/grupo27-6soat-fiap/FoodTech/blob/9ad3c14929a53c745bbb648bb42a8d6aeaff7607/Arquitetura.drawio.png)
 
 
 ## Link Youtube:
@@ -68,13 +69,13 @@ Para implantar o projeto, utilizamos o conceito de containers com o Docker como 
 # Como executar o projeto
 
 ## Back end
-Pré-requisitos: Java 17, JDK 17, Maven, MySql Server.
+Pré-requisitos: Java 17, JDK 17, Gradle, Postgres.
 
 # Como rodar local:
 
 ```bash
 # clonar repositório
-git clone [https://github.com/grupo27-6soat-fiap/TechChallengeFood.git]
+git clone [https://github.com/grupo27-6soat-fiap/TechFood.git]
 
 # entrar na pasta do projeto food-techchallenge-api
 cd food-techchallenge-api
@@ -91,7 +92,7 @@ cd food-techchallenge-api
 
 ```bash
 # clonar repositório
-git clone [https://github.com/grupo27-6soat-fiap/TechChallengeFood.git]
+git clone [https://github.com/grupo27-6soat-fiap/FoodTech.git]
 
 # entrar na pasta do projeto food-techchallenge-api
 cd food-techchallenge-api
@@ -115,7 +116,7 @@ docker compose up --build
 ### Após o Kubernetes incializar, seguir os próximos passos:
 
 ### Clonar repositório:
-git clone [https://github.com/grupo27-6soat-fiap/TechChallengeFood.git]
+git clone [https://github.com/grupo27-6soat-fiap/FoodTech.git]
 
 ### Entrar na pasta do projeto food-techchallenge-api:
 cd food-techchallenge-api
